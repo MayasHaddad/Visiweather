@@ -18,5 +18,3 @@ void Visiweather::on_Quit_clicked()
 {
 
 }
-
-Visiweather::connect(,,);

@@ -14,7 +14,7 @@
    <string>Visiweather</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="Quit">
+   <widget class="QPushButton" name="quitter">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -27,24 +27,98 @@
      <string>Quit</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>270</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>zyva!</string>
+    </property>
+   </widget>
+   <widget class="QDialogButtonBox" name="buttonBox">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>350</y>
+      <width>156</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="standardButtons">
+     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections>
   <connection>
-   <sender>Quit</sender>
+   <sender>quitter</sender>
    <signal>clicked()</signal>
    <receiver>Visiweather</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>114</x>
-     <y>170</y>
+     <x>174</x>
+     <y>174</y>
     </hint>
     <hint type="destinationlabel">
-     <x>129</x>
-     <y>149</y>
+     <x>376</x>
+     <y>169</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>pressed()</signal>
+   <receiver>Visiweather</receiver>
+   <slot>showFullScreen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>356</x>
+     <y>307</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Visiweather</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>90</x>
+     <y>364</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>53</x>
+     <y>417</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Visiweather</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>177</x>
+     <y>364</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>266</x>
+     <y>404</y>
     </hint>
    </hints>
   </connection>
