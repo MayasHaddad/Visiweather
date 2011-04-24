@@ -15,7 +15,8 @@ SOURCES += main.cpp\
 
 HEADERS  += visiweather.h
 
-FORMS    += visiweather.ui
+FORMS    += \
+    visiweather.ui
 
 CONFIG += mobility
 MOBILITY = 

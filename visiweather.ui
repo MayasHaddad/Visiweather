@@ -6,121 +6,137 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>480</height>
+    <width>377</width>
+    <height>404</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Visiweather</string>
+   <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="quitter">
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>160</y>
-      <width>75</width>
-      <height>23</height>
+      <x>50</x>
+      <y>20</y>
+      <width>229</width>
+      <height>231</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Quit</string>
-    </property>
+    <layout class="QVBoxLayout" name="layoutWidget_2">
+     <property name="spacing">
+      <number>30</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
+     <item>
+      <layout class="QGridLayout" name="grandlayout" rowstretch="0,100" columnstretch="0">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMinAndMaxSize</enum>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="Layout_choix">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelChoisirVille">
+           <property name="text">
+            <string>Choisir une localisation géographique</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <layout class="QHBoxLayout" name="layoutLineEditPushButton">
+           <item>
+            <widget class="QLineEdit" name="lineEdit">
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton">
+             <property name="text">
+              <string>Aller</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelVilleOk">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox">
+       <property name="text">
+        <string>fonctionner en mode hors connexion</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>270</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>zyva!</string>
-    </property>
-   </widget>
-   <widget class="QDialogButtonBox" name="buttonBox">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>350</y>
-      <width>156</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="standardButtons">
-     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-    </property>
-   </widget>
+   <zorder>layoutWidget</zorder>
+   <zorder>labelChoisirVille</zorder>
+   <zorder>labelVilleOk</zorder>
+   <zorder>verticalLayoutWidget_2</zorder>
+   <zorder>verticalLayoutWidget_2</zorder>
+   <zorder>listView</zorder>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections>
   <connection>
-   <sender>quitter</sender>
+   <sender>pushButton</sender>
    <signal>clicked()</signal>
    <receiver>Visiweather</receiver>
-   <slot>close()</slot>
+   <slot>ville_choisie()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>174</x>
-     <y>174</y>
+     <x>241</x>
+     <y>49</y>
     </hint>
     <hint type="destinationlabel">
-     <x>376</x>
-     <y>169</y>
+     <x>311</x>
+     <y>143</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
-   <signal>pressed()</signal>
+   <sender>checkBox</sender>
+   <signal>stateChanged(int)</signal>
    <receiver>Visiweather</receiver>
-   <slot>showFullScreen()</slot>
+   <slot>fonctionner_en_hors_connex()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>113</x>
-     <y>289</y>
+     <x>59</x>
+     <y>242</y>
     </hint>
     <hint type="destinationlabel">
-     <x>356</x>
-     <y>307</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>Visiweather</receiver>
-   <slot>update()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>90</x>
-     <y>364</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>53</x>
-     <y>417</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>Visiweather</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>177</x>
-     <y>364</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>266</x>
-     <y>404</y>
+     <x>95</x>
+     <y>340</y>
     </hint>
    </hints>
   </connection>
  </connections>
+ <slots>
+  <slot>ville_choisie()</slot>
+  <slot>fonctionner_en_hors_connex()</slot>
+ </slots>
 </ui>
