@@ -9,9 +9,11 @@ QT       += core gui
 TARGET = Visiweather
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
         visiweather.cpp
+
+ QT += gui declarative
+ SOURCES += main.cpp
 
 HEADERS  += visiweather.h
 
@@ -27,3 +29,9 @@ symbian {
     TARGET.EPOCSTACKSIZE = 0x14000
     TARGET.EPOCHEAPSIZE = 0x020000 0x800000
 }
+
+OTHER_FILES += \
+    InterfaceAnime.qml
+
+RESOURCES += \
+    objets_du_paysage.qrc

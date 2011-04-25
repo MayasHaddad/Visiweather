@@ -1,6 +1,10 @@
 #include "visiweather.h"
 #include "ui_visiweather.h"
-
+#include "InterfaceAnime.qml"
+#include <QDeclarativeView>
+#include <QDeclarativeEngine>
+ #include <QDeclarativeContext>
+ #include <QDeclarativeComponent>
 Visiweather::Visiweather(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Visiweather)
@@ -27,5 +31,7 @@ void Visiweather::ville_choisie()
 
 void Visiweather::fonctionner_en_hors_connex()
 {
-
+        QDeclarativeView view;
+         view.setSource(QUrl::fromLocalFile("InterfaceAnime.qml"));
+         view.show();
 }

@@ -2,6 +2,10 @@
 #define VISIWEATHER_H
 
 #include <QMainWindow>
+#include <QDeclarativeView>
+#include <QDeclarativeEngine>
+ #include <QDeclarativeContext>
+ #include <QDeclarativeComponent>
 
 namespace Ui {
     class Visiweather;
