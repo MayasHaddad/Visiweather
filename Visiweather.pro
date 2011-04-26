@@ -13,7 +13,6 @@ SOURCES += main.cpp\
         visiweather.cpp
 
  QT += gui declarative
- SOURCES += main.cpp
 
 HEADERS  += visiweather.h
 

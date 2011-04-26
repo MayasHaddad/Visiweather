@@ -3,10 +3,6 @@
 
 #include <QMainWindow>
 #include <QDeclarativeView>
-#include <QDeclarativeEngine>
- #include <QDeclarativeContext>
- #include <QDeclarativeComponent>
-
 namespace Ui {
     class Visiweather;
 }
@@ -23,10 +19,11 @@ public:
 public slots :
 void ville_choisie();
 void fonctionner_en_hors_connex();
-
+void fermer_qml_view();
 private:
     Ui::Visiweather *ui;
     QString new_label;
+    QDeclarativeView* view;
 };
 
 #endif // VISIWEATHER_H

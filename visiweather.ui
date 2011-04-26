@@ -68,8 +68,20 @@
           <layout class="QHBoxLayout" name="layoutLineEditPushButton">
            <item>
             <widget class="QLineEdit" name="lineEdit">
+             <property name="inputMask">
+              <string/>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
              <property name="frame">
-              <bool>false</bool>
+              <bool>true</bool>
+             </property>
+             <property name="dragEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>Saisir une localisation</string>
              </property>
             </widget>
            </item>
