@@ -2,8 +2,7 @@
 #include "ui_visiweather.h"
 Visiweather::Visiweather(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::Visiweather),
-    view(NULL)
+    ui(new Ui::Visiweather)
 {
     ui->setupUi(this);
 }
@@ -27,17 +26,10 @@ void Visiweather::ville_choisie()
 }
 void Visiweather::fermer_qml_view()
 {
-   // view->hide();
-    delete view;
-    view=NULL;
 }
 
 void Visiweather::fonctionner_en_hors_connex()
 {
-    //if(!view){
-        view= new QDeclarativeView();
-        QObject::connect(view,SIGNAL(close()),this,SLOT(fermer_qml_view()));
-   // }
-         view->setSource(QUrl::fromLocalFile("InterfaceAnime.qml"));
-         view->show();
+   QProcess *process = new QProcess();
+    process->startDetached("C:\\Visiweather1\\interface_qml-build-Simulator\\interface_qml.exe");
 }

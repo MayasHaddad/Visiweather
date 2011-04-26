@@ -2,7 +2,8 @@
 #define VISIWEATHER_H
 
 #include <QMainWindow>
-#include <QDeclarativeView>
+#include <QProcess>
+
 namespace Ui {
     class Visiweather;
 }
@@ -23,7 +24,6 @@ void fermer_qml_view();
 private:
     Ui::Visiweather *ui;
     QString new_label;
-    QDeclarativeView* view;
 };
 
 #endif // VISIWEATHER_H

@@ -12,8 +12,6 @@ TEMPLATE = app
 SOURCES += main.cpp\
         visiweather.cpp
 
- QT += gui declarative
-
 HEADERS  += visiweather.h
 
 FORMS    += \
@@ -29,8 +27,6 @@ symbian {
     TARGET.EPOCHEAPSIZE = 0x020000 0x800000
 }
 
-OTHER_FILES += \
-    InterfaceAnime.qml
+OTHER_FILES +=
 
-RESOURCES += \
-    objets_du_paysage.qrc
+RESOURCES +=

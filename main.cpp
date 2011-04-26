@@ -1,5 +1,4 @@
 #include <QtGui/QApplication>
-#include <QDeclarativeView>
 #include "visiweather.h"
 
 int main(int argc, char *argv[])
