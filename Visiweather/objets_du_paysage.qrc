@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/prefixe">
-        <file>ressources/moon.png</file>
-        <file>ressources/sun.png</file>
-        <file>ressources/star.png</file>
-    </qresource>
-</RCC>

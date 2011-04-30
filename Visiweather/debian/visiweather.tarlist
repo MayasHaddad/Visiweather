@@ -1,6 +1,0 @@
-755 root root . usr /
-755 root root . usr/bin /
-755 root root . usr/local /
-755 root root . usr/local/bin /
-755 root root . usr/local/bin/Visiweather debian/visiweather/usr/local/bin/Visiweather
-755 root root . usr/sbin /
