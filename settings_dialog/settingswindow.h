@@ -2,6 +2,7 @@
 #define SETTINGSWINDOW_H
 
 #include <QtGui/QMainWindow>
+#include <QtGui/QDialog>
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
@@ -31,6 +32,7 @@ public:
 public slots:
     void ville_choisie();
     void fonctionner_en_hors_connex();
+    void recup_channel();
 private:
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget_2;
@@ -46,7 +48,9 @@ private:
     QStatusBar *statusbar;
     QString new_label;
     QCompleter *completer;
+    QProcess *process;
     QStringList wordList;
+    bool lance;
 };
 
 #endif // SETTINGSWINDOW_H

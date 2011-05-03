@@ -74,10 +74,11 @@ settingsWindow::settingsWindow(QWidget *parent)
 
     retranslateUi(this);
     QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(ville_choisie()));
-    QObject::connect(checkBox, SIGNAL(stateChanged(int)), this, SLOT(fonctionner_en_hors_connex()));
+    QObject::connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(fonctionner_en_hors_connex()));
 
     QMetaObject::connectSlotsByName(this);
-
+    process = new QProcess();
+    lance=false;
 }
 
 void settingsWindow::retranslateUi(QMainWindow *settingsWindow)
@@ -107,11 +108,29 @@ void settingsWindow::ville_choisie()
 
 void settingsWindow::fonctionner_en_hors_connex()
 {
-   QProcess *process = new QProcess();
+   if(checkBox->isChecked() && lance==false)
+    {
   // process->setWorkingDirectory ("");
-    process->startDetached("C:\\Visiweather1\\interface_qml-build-simulator\\interface_qml.exe");
+    process->startDetached("C:\\Visiweather1\\interface_qml-build-desktop\\release\\interface_qml.exe");
+    lance=true;
+    process->setReadChannel(QProcess::StandardOutput);
+    QObject::connect(process, SIGNAL(readyRead()), this, SLOT(recup_channel()));
+    }
+   /*else
+   {
+     process->close();
+   }*/
 }
 
+void settingsWindow::recup_channel()
+{
+   /*char;
+    process->readData(data,256);
+    labelVilleOk->setText(data);
+    QDialog *win;
+    win->show(); */
+    lance=false;
+}
 settingsWindow::~settingsWindow()
 {
 

@@ -14,7 +14,6 @@ SOURCES += main.cpp\
         settingswindow.cpp
 
 HEADERS  += settingswindow.h
-
 CONFIG += mobility
 MOBILITY = 
 

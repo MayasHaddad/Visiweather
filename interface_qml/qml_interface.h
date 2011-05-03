@@ -3,6 +3,7 @@
 
 #include <QtGui/QMainWindow>
 #include <QDeclarativeView>
+#include <iostream>
 
 class qml_interface : public QMainWindow
 {

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'settingswindow.h'
 **
-** Created: Sat 30. Apr 01:42:36 2011
+** Created: Sun 1. May 21:31:49 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_settingsWindow[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -33,6 +33,7 @@ static const uint qt_meta_data_settingsWindow[] = {
  // slots: signature, parameters, type, tag, flags
       16,   15,   15,   15, 0x0a,
       32,   15,   15,   15, 0x0a,
+      61,   15,   15,   15, 0x0a,
 
        0        // eod
 };
@@ -40,6 +41,7 @@ static const uint qt_meta_data_settingsWindow[] = {
 static const char qt_meta_stringdata_settingsWindow[] = {
     "settingsWindow\0\0ville_choisie()\0"
     "fonctionner_en_hors_connex()\0"
+    "recup_channel()\0"
 };
 
 const QMetaObject settingsWindow::staticMetaObject = {
@@ -73,9 +75,10 @@ int settingsWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         switch (_id) {
         case 0: ville_choisie(); break;
         case 1: fonctionner_en_hors_connex(); break;
+        case 2: recup_channel(); break;
         default: ;
         }
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }
