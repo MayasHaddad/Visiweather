@@ -103,7 +103,7 @@ QString settingsWindow::get_concat()
 
 void settingsWindow::ville_choisie()
 {
-    labelVilleOk->setText(get_concat());
+    labelVilleOk->setText(complete->getFormatquery(lineEdit->text()));
 }
 
 void settingsWindow::fonctionner_en_hors_connex()
@@ -138,13 +138,14 @@ void settingsWindow::creeCompleter(QString debut)
     wordList = complete->getListeVilles(lineEdit->text());
    //wordList <<"Hassi Messaoud" << "Tizi Ouzou" << "Bejaïa" << "Draâ Ben Khedda" << "Tizi Rached" << "Hassi Bahbah" << "Oran" << "Alger" << "Tamanrasset";
    completer[debut] = new QCompleter(wordList,lineEdit);
-    completer[debut]->setCaseSensitivity(Qt::CaseInsensitive);
-    lineEdit->setCompleter(completer[debut]);
-    lineEdit->setFocus(Qt::OtherFocusReason);
+   completer[debut]->setCaseSensitivity(Qt::CaseInsensitive);
+   lineEdit->setCompleter(completer[debut]);
+   lineEdit->setFocus(Qt::OtherFocusReason);
 }
 
 void settingsWindow::reConnec(QString nouvotext)     // une fois le completer créé la premiere fois Il doit etre recréé apres qu'une touche a ete tapée
 {
+    lineEdit->setCompleter(0);
     if(complete->InCache(nouvotext)) emit cdanslcache(nouvotext);
     else complete->connexion(nouvotext);
 }

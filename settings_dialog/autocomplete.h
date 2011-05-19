@@ -14,6 +14,7 @@ public:
     QStringList getListeVilles(QString);
     void addCache(QString,QStringList);
     bool InCache(QString);
+    QString getFormatquery(QString);
 signals:
     void requettereussie(QString);
 public slots:
@@ -22,6 +23,7 @@ private :
         QHttp *QhttpClient;
         QStringList *ListeVilles;
         std::map<QString , QStringList> cache;
+        std::map<QString , QString> formatquery;
         std::map<int , QString> mapdebut;
 };
 

@@ -34,6 +34,8 @@ QStringList autocomplete::traitementChaine(int i,bool erreur)
                  while (it.hasNext()) {
                      it.next();
                     liste << it.value().property(0).toString()+","+it.value().property(3).toString();
+                    // liste de correspondance des villes et /place/
+                    formatquery[it.value().property(0).toString()+","+it.value().property(3).toString()]=it.value().property(1).toString();
                  }
         }
        /* QComboBox* combo = new QComboBox();
@@ -59,4 +61,9 @@ void autocomplete::addCache(QString cle, QStringList wordlist)
 bool autocomplete::InCache(QString debut)
 {
     return cache.count(debut);
+}
+
+QString autocomplete::getFormatquery(QString formatutilisateur)
+{
+    return formatquery[formatutilisateur].remove("/sted/");
 }

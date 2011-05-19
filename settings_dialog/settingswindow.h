@@ -53,7 +53,7 @@ private:
     QCheckBox *checkBox;
     QStatusBar *statusbar;
     QString new_label;
-    std::map<QString , QCompleter> *completer;
+    std::map<QString , QCompleter *> completer;
     QProcess *process;
     QStringList wordList;
     autocomplete *complete;
