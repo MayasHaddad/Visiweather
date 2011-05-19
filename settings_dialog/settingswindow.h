@@ -20,6 +20,8 @@
 #include <QtGui/QWidget>
 #include <QProcess>
 #include <QCompleter>
+#include <QMessageBox>
+class autocomplete;
 class settingsWindow : public QMainWindow
 {
     Q_OBJECT
@@ -29,10 +31,14 @@ public:
     void retranslateUi(QMainWindow *settingsWindow);
     QString get_concat();
     ~settingsWindow();
+signals:
+    void cdanslcache(QString);
 public slots:
     void ville_choisie();
     void fonctionner_en_hors_connex();
     void recup_channel();
+    void creeCompleter(QString);
+    void reConnec(QString);
 private:
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget_2;
@@ -47,9 +53,10 @@ private:
     QCheckBox *checkBox;
     QStatusBar *statusbar;
     QString new_label;
-    QCompleter *completer;
+    std::map<QString , QCompleter> *completer;
     QProcess *process;
     QStringList wordList;
+    autocomplete *complete;
     bool lance;
 };
 

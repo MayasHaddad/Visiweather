@@ -1,5 +1,5 @@
 #include "settingswindow.h"
-
+#include "autocomplete.h"
 settingsWindow::settingsWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -29,20 +29,17 @@ settingsWindow::settingsWindow(QWidget *parent)
     labelChoisirVille = new QLabel(verticalLayoutWidget_2);
     labelChoisirVille->setObjectName(QString::fromUtf8("labelChoisirVille"));
 
-    Layout_choix->addWidget(labelChoisirVille, 0, 0, 1, 1);
+    complete = new autocomplete();
+    complete->connexion("");
 
+    Layout_choix->addWidget(labelChoisirVille, 0, 0, 1, 1);
     layoutLineEditPushButton = new QHBoxLayout();
     layoutLineEditPushButton->setObjectName(QString::fromUtf8("layoutLineEditPushButton"));
     lineEdit = new QLineEdit(verticalLayoutWidget_2);
     lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
     lineEdit->setFrame(false);
     lineEdit->setDragEnabled(false);
-    wordList <<"Hassi Messaoud" << "Tizi Ouzou" << "Bejaïa" << "Draâ Ben Khedda" << "Tizi Rached" << "Hassi Bahbah" << "Oran" << "Alger" << "Tamanrasset";
-    completer = new QCompleter(wordList, lineEdit);
-    completer->setCaseSensitivity(Qt::CaseInsensitive);
-    lineEdit->setCompleter(completer);
     layoutLineEditPushButton->addWidget(lineEdit);
-
     pushButton = new QPushButton(verticalLayoutWidget_2);
     pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
@@ -75,6 +72,9 @@ settingsWindow::settingsWindow(QWidget *parent)
     retranslateUi(this);
     QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(ville_choisie()));
     QObject::connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(fonctionner_en_hors_connex()));
+    QObject::connect(complete,SIGNAL(requettereussie(QString)),this,SLOT(creeCompleter(QString)));
+    QObject::connect(this,SIGNAL(cdanslcache(QString)),this,SLOT(creeCompleter(QString)));
+    QObject::connect(lineEdit,SIGNAL(textEdited(QString)),this,SLOT(reConnec(QString)));
 
     QMetaObject::connectSlotsByName(this);
     process = new QProcess();
@@ -124,13 +124,31 @@ void settingsWindow::fonctionner_en_hors_connex()
 
 void settingsWindow::recup_channel()
 {
-   /*char;
+    /*
+    char data[256];
     process->readData(data,256);
-    labelVilleOk->setText(data);
-    QDialog *win;
-    win->show(); */
+    labelVilleOk->setText(data);*/
+    QDialog *win=new QDialog(this);
+    win->show();
     lance=false;
 }
+
+void settingsWindow::creeCompleter(QString debut)
+{
+    wordList = complete->getListeVilles(lineEdit->text());
+   //wordList <<"Hassi Messaoud" << "Tizi Ouzou" << "Bejaïa" << "Draâ Ben Khedda" << "Tizi Rached" << "Hassi Bahbah" << "Oran" << "Alger" << "Tamanrasset";
+   completer[debut] = new QCompleter(wordList,lineEdit);
+    completer[debut]->setCaseSensitivity(Qt::CaseInsensitive);
+    lineEdit->setCompleter(completer[debut]);
+    lineEdit->setFocus(Qt::OtherFocusReason);
+}
+
+void settingsWindow::reConnec(QString nouvotext)     // une fois le completer créé la premiere fois Il doit etre recréé apres qu'une touche a ete tapée
+{
+    if(complete->InCache(nouvotext)) emit cdanslcache(nouvotext);
+    else complete->connexion(nouvotext);
+}
+
 settingsWindow::~settingsWindow()
 {
 
