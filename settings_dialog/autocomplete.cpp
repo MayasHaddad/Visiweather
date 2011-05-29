@@ -26,7 +26,7 @@ QStringList autocomplete::traitementChaine(int i,bool erreur)
         result = QhttpClient->readAll();
         QScriptValue sc;
         QScriptEngine engine;
-        sc = engine.evaluate(QString(result));// In new versions it may need to look like engine.evaluate("(" + QString(result) + ")");
+        sc = engine.evaluate(QString(result));
        //liste <<  sc.property("result").toString ();
         if (sc.isArray())
         {
@@ -43,8 +43,8 @@ QStringList autocomplete::traitementChaine(int i,bool erreur)
         combo->show();*/
        // QMessageBox::information(NULL, "Titre de la fenêtre",QString("[result:")+QString(result)+QString("]"));
    addCache(mapdebut[i],liste);
-  // mapdebut.erase(i);
-    emit requettereussie((mapdebut[i]));
+   emit requettereussie((mapdebut[i]));
+  mapdebut.erase(i);
         return liste;
 }
 

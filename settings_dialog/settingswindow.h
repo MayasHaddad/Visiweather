@@ -21,6 +21,8 @@
 #include <QProcess>
 #include <QCompleter>
 #include <QMessageBox>
+#include <QListWidget>
+#include <QComboBox>
 class autocomplete;
 class settingsWindow : public QMainWindow
 {
@@ -39,6 +41,7 @@ public slots:
     void recup_channel();
     void creeCompleter(QString);
     void reConnec(QString);
+     void setext(QString);
 private:
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget_2;

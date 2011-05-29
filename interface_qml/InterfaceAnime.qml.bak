@@ -28,20 +28,6 @@ Item {
         }	
     }
 
-	Item{
-		x:-200; y:20;
-		PropertyAnimation on x {to:600; duration:10000; loops:Animation.Infinite}
-		PropertyAnimation on z {to:600; duration:10000; loops:Animation.Infinite}
-	Image {
-			source: "ressources/daylightcloud.png"; x:50; y:20 
-		}
-	}
-	Item{
-		PropertyAnimation on y {to:10; duration:10000; loops:Animation.Infinite}
-	Image {
-			source: "ressources/loveballoons.png"; y:1000; x:100
-		}
-		}
     // the sun, moon, and stars
     Item {
         width: parent.width; height: 2 * parent.height
@@ -81,4 +67,24 @@ Item {
             GradientStop { position: 1.0; color: "DarkGreen" }
         }
     }
+	Item{
+		// x:-400; y:-50;
+		PropertyAnimation on x {to:600; duration:100000; loops:Animation.Infinite}
+	Item{
+		SequentialAnimation on y{
+		loops:Animation.Infinite
+		NumberAnimation {from:10; to:0; duration:900}
+		NumberAnimation {from:0; to:10; duration:900}
+		}
+	Image {
+			source: "ressources/CL05.png"; x:50 
+		}
+	}
+	}
+	Item{
+		PropertyAnimation on y {to:10; duration:10000; loops:Animation.Infinite}
+	Image {
+			source: "ressources/loveballoons.png"; y:1000; x:100
+		}
+		}
 }

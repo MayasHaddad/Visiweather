@@ -30,7 +30,6 @@ settingsWindow::settingsWindow(QWidget *parent)
     labelChoisirVille->setObjectName(QString::fromUtf8("labelChoisirVille"));
 
     complete = new autocomplete();
-    complete->connexion("");
 
     Layout_choix->addWidget(labelChoisirVille, 0, 0, 1, 1);
     layoutLineEditPushButton = new QHBoxLayout();
@@ -44,8 +43,6 @@ settingsWindow::settingsWindow(QWidget *parent)
     pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
     layoutLineEditPushButton->addWidget(pushButton);
-
-
     Layout_choix->addLayout(layoutLineEditPushButton, 1, 0, 1, 1);
 
 
@@ -73,8 +70,10 @@ settingsWindow::settingsWindow(QWidget *parent)
     QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(ville_choisie()));
     QObject::connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(fonctionner_en_hors_connex()));
     QObject::connect(complete,SIGNAL(requettereussie(QString)),this,SLOT(creeCompleter(QString)));
+    //QObject::connect(complete,SIGNAL(requettereussie(QString)),this,SLOT(chaban(QString)));
     QObject::connect(this,SIGNAL(cdanslcache(QString)),this,SLOT(creeCompleter(QString)));
     QObject::connect(lineEdit,SIGNAL(textEdited(QString)),this,SLOT(reConnec(QString)));
+
 
     QMetaObject::connectSlotsByName(this);
     process = new QProcess();
@@ -104,6 +103,10 @@ QString settingsWindow::get_concat()
 void settingsWindow::ville_choisie()
 {
     labelVilleOk->setText(complete->getFormatquery(lineEdit->text()));
+   /* QStringList place = QString("");
+                     place <<  lineEdit->text();
+    process->startDetached("C:\\Visiweather1\\chercheur_donnee_meteo",place);
+*/
 }
 
 void settingsWindow::fonctionner_en_hors_connex()
@@ -124,10 +127,9 @@ void settingsWindow::fonctionner_en_hors_connex()
 
 void settingsWindow::recup_channel()
 {
-    /*
     char data[256];
-    process->readData(data,256);
-    labelVilleOk->setText(data);*/
+    //process->readData(data,256);
+    labelVilleOk->setText(data);
     QDialog *win=new QDialog(this);
     win->show();
     lance=false;
@@ -135,20 +137,35 @@ void settingsWindow::recup_channel()
 
 void settingsWindow::creeCompleter(QString debut)
 {
-    wordList = complete->getListeVilles(lineEdit->text());
-   //wordList <<"Hassi Messaoud" << "Tizi Ouzou" << "Bejaïa" << "Draâ Ben Khedda" << "Tizi Rached" << "Hassi Bahbah" << "Oran" << "Alger" << "Tamanrasset";
-   completer[debut] = new QCompleter(wordList,lineEdit);
-   completer[debut]->setCaseSensitivity(Qt::CaseInsensitive);
-   lineEdit->setCompleter(completer[debut]);
-   lineEdit->setFocus(Qt::OtherFocusReason);
+    wordList = complete->getListeVilles(debut);
+//   QCompleter *ali = new QCompleter(wordList,this);
+//   ali->setCaseSensitivity(Qt::CaseInsensitive);
+//   lineEdit->setCompleter(ali);
+//   lineEdit->setFocus(Qt::OtherFocusReason);
+//   lineEdit->setText(lineEdit->text());
+//   QComboBox *list = new QComboBox(this);
+//   list->addItems(wordList);
+//   layoutLineEditPushButton->addWidget(list);
+//   list->show();
+    QListWidget *list = new QListWidget(this);
+    QObject::connect(list,SIGNAL(currentTextChanged (QString)),this,SLOT(setext(QString)));
+    list->addItems(wordList);
+    list->move(lineEdit->x(),lineEdit->y()+10);
+    list->setFixedSize(lineEdit->width(),150);
+    list->show();
 }
 
 void settingsWindow::reConnec(QString nouvotext)     // une fois le completer créé la premiere fois Il doit etre recréé apres qu'une touche a ete tapée
 {
-    lineEdit->setCompleter(0);
     if(complete->InCache(nouvotext)) emit cdanslcache(nouvotext);
     else complete->connexion(nouvotext);
 }
+
+ void settingsWindow::setext(QString ville)
+ {
+    lineEdit->setText(ville);
+//    delete list;
+ }
 
 settingsWindow::~settingsWindow()
 {

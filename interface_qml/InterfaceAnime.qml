@@ -76,7 +76,7 @@ Item {
 		NumberAnimation {from:10; to:0; duration:900}
 		NumberAnimation {from:0; to:10; duration:900}
 		}
-	Image {
+		Image {
 			source: "ressources/CL05.png"; x:50 
 		}
 	}
