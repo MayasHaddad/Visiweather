@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qml_interface.h'
 **
-** Created: Wed 27. Apr 22:26:14 2011
+** Created: Thu 9. Jun 21:31:31 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!

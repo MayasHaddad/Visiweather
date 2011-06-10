@@ -71,6 +71,7 @@ Item {
 		// x:-400; y:-50;
 		PropertyAnimation on x {to:600; duration:100000; loops:Animation.Infinite}
 	Item{
+		durePassage: int
 		SequentialAnimation on y{
 		loops:Animation.Infinite
 		NumberAnimation {from:10; to:0; duration:900}

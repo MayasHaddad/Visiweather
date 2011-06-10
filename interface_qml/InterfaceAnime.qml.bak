@@ -71,12 +71,13 @@ Item {
 		// x:-400; y:-50;
 		PropertyAnimation on x {to:600; duration:100000; loops:Animation.Infinite}
 	Item{
+		durePassage:
 		SequentialAnimation on y{
 		loops:Animation.Infinite
 		NumberAnimation {from:10; to:0; duration:900}
 		NumberAnimation {from:0; to:10; duration:900}
 		}
-	Image {
+		Image {
 			source: "ressources/CL05.png"; x:50 
 		}
 	}

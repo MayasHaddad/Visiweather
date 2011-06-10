@@ -4,6 +4,7 @@
 //#include <QObject>
 #include <QtNetwork/QHttp>
 #include <QComboBox>
+#include <QListWidget>
 class autocomplete : public QObject
 {
      Q_OBJECT
@@ -15,6 +16,8 @@ public:
     void addCache(QString,QStringList);
     bool InCache(QString);
     QString getFormatquery(QString);
+    QListWidget* ListeCourrante();
+    void setListeCourrante(QListWidget*);
 signals:
     void requettereussie(QString);
 public slots:
@@ -25,6 +28,7 @@ private :
         std::map<QString , QStringList> cache;
         std::map<QString , QString> formatquery;
         std::map<int , QString> mapdebut;
+         QListWidget *currentListWidget;
 };
 
 #endif // AUTOCOMPLETE_H

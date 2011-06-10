@@ -4,17 +4,19 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui xmlpatterns
 
 TARGET = interface_qml
 TEMPLATE = app
 
- QT += gui declarative
+ QT += gui declarative gui core
 
 SOURCES += main.cpp\
-        qml_interface.cpp
+        qml_interface.cpp \
+    receiver.cpp
 
-HEADERS  += qml_interface.h
+HEADERS  += qml_interface.h \
+    receiver.h
 
 CONFIG += mobility
 MOBILITY = 

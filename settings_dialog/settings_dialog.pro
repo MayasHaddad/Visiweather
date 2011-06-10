@@ -18,11 +18,11 @@ HEADERS  += settingswindow.h \
     autocomplete.h
 
 CONFIG += mobility
-MOBILITY = 
+MOBILITY = bearer
 
 symbian {
     TARGET.UID3 = 0xec2b08cc
-    # TARGET.CAPABILITY += 
+    TARGET.CAPABILITY += "NetworkServices ReadUserData WriteUserData"
     TARGET.EPOCSTACKSIZE = 0x14000
     TARGET.EPOCHEAPSIZE = 0x020000 0x800000
 }

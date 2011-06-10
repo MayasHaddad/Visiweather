@@ -5,16 +5,20 @@
 #include <iostream>
 #include <fstream>
 #include <QFile>
-class chercheurdata
+#include <QTextStream>
+#include <QXmlItem>
+#include <QXmlQuery>
+#include <QXmlResultItems>
+#include <QThread>
+
+class Chercheurdata
 {
-    Q_OBJECT
 public:
-    chercheurdata(QString);
-    void ExecuteRequette(QString);
-public slots:
+    Chercheurdata();
+void ExecuteRequete(QString);
+private:
     void CreeFichierNewData();
     void EcrisDansFichierData();
-private:
     QString *place;
     QFile fichiernewdata;
     QFile fichiercontiendata;

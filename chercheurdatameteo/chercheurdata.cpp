@@ -15,34 +15,36 @@
                      "           { $time/temperature/@value, $time/temperature/@unit }\n" \
                      "       </temperature>\n" \
                      "       </time>\n"
-
-chercheurdata::chercheurdata(QString place)
+using namespace std;
+Chercheurdata::Chercheurdata()
 {
-   // place= new QString(places.at(1));
-    this->ExecuteRequette(place); // "Italia/Toscana/Firenze"
 }
 
-void chercheurdata::ExecuteRequette(QString place)
+void Chercheurdata::ExecuteRequete(QString place)
 {
-    QString url = QString("http://www.yr.no/place/%1/forecast.xml").arg(place);
+   // QString url = QString("http://www.yr.no/place/%1/forecast.xml").arg(place);
+    QString url="C:\\Users\\mayas\\Desktop\\qq33-xquery\\queries\\forecast.xml";
     QXmlQuery query;
     query.bindVariable("url", QXmlItem(QVariant(url)));
+
     query.setQuery(query_string);
 
+    Receiver receiver(query.namePool());
+
     if (query.isValid()) {
-        fichiernewdata = new QFile("newdata.txt");
-        fichiercontiendata = new QFile("weatherdata.txt");
-        query.evaluateTo(fichiercontiendata);
+        if (query.evaluateTo(&receiver)) {
+            foreach (const Forecast &forecast, receiver.forecasts) {
+                std::cout << qPrintable(forecast.time["from"]) << std::endl;
+                std::cout << qPrintable(forecast.temperature["value"] + " " + forecast.temperature["unit"]) << std::endl;
+            }
+        }
     }
-
 }
-
-void chercheurdata::CreeFichierNewData()
+void Chercheurdata::CreeFichierNewData()
 {
-
 }
 
-void chercheurdata::EcrisDansFichierData()
+void Chercheurdata::EcrisDansFichierData()
 {
 
 }

@@ -86,7 +86,7 @@ void settingsWindow::retranslateUi(QMainWindow *settingsWindow)
     labelChoisirVille->setText(QApplication::translate("settingsWindow", "Choisir une localisation g\303\251ographique", 0, QApplication::UnicodeUTF8));
     lineEdit->setInputMask(QString());
     lineEdit->setText(QString());
-    lineEdit->setPlaceholderText(QApplication::translate("settingsWindow", "Saisir une localisation", 0, QApplication::UnicodeUTF8));
+//  lineEdit->setPlaceholderText(QApplication::translate("settingsWindow", "Saisir une localisation", 0, QApplication::UnicodeUTF8));
     pushButton->setText(QApplication::translate("settingsWindow", "Aller", 0, QApplication::UnicodeUTF8));
     labelVilleOk->setText(QString());
     checkBox->setText(QApplication::translate("settingsWindow", "fonctionner en mode hors connexion", 0, QApplication::UnicodeUTF8));
@@ -137,20 +137,18 @@ void settingsWindow::recup_channel()
 
 void settingsWindow::creeCompleter(QString debut)
 {
+    if(complete->ListeCourrante())
+    {
+        complete->ListeCourrante()->hide();
+    }
     wordList = complete->getListeVilles(debut);
-//   QCompleter *ali = new QCompleter(wordList,this);
-//   ali->setCaseSensitivity(Qt::CaseInsensitive);
-//   lineEdit->setCompleter(ali);
-//   lineEdit->setFocus(Qt::OtherFocusReason);
-//   lineEdit->setText(lineEdit->text());
-//   QComboBox *list = new QComboBox(this);
-//   list->addItems(wordList);
-//   layoutLineEditPushButton->addWidget(list);
-//   list->show();
+    wordList.removeLast();
     QListWidget *list = new QListWidget(this);
+    complete->setListeCourrante(list);
     QObject::connect(list,SIGNAL(currentTextChanged (QString)),this,SLOT(setext(QString)));
+    QObject::connect(list,SIGNAL(itemActivated(QListWidgetItem*)),this,SLOT(hidelist(QListWidgetItem*)));
     list->addItems(wordList);
-    list->move(lineEdit->x(),lineEdit->y()+10);
+    list->move(lineEdit->x()+20,lineEdit->y()+43);
     list->setFixedSize(lineEdit->width(),150);
     list->show();
 }
@@ -164,9 +162,12 @@ void settingsWindow::reConnec(QString nouvotext)     // une fois le completer cr
  void settingsWindow::setext(QString ville)
  {
     lineEdit->setText(ville);
-//    delete list;
  }
 
+ void settingsWindow::hidelist(QListWidgetItem *item)
+ {
+   item->listWidget()->hide();
+ }
 settingsWindow::~settingsWindow()
 {
 

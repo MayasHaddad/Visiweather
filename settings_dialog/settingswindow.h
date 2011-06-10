@@ -42,6 +42,7 @@ public slots:
     void creeCompleter(QString);
     void reConnec(QString);
      void setext(QString);
+     void hidelist(QListWidgetItem*);
 private:
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget_2;

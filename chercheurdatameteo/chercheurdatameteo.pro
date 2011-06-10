@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core Qxmlpatterns
+QT       += core xmlpatterns
 
 QT       -= gui
 
@@ -16,7 +16,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    chercheurdata.cpp
+    chercheurdata.cpp \
+    receiver.cpp
 
 HEADERS += \
-    chercheurdata.h
+    chercheurdata.h \
+    receiver.h

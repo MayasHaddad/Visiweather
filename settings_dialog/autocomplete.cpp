@@ -11,9 +11,12 @@ autocomplete::autocomplete()
 
 void autocomplete::connexion(QString debut)
 {
-    int valeur = QhttpClient->get(QString("/_/websvc/jsonforslagsboks.aspx?s="+debut));
+   if(!(debut.startsWith(" ") || debut.isEmpty()))
+   {
+        int valeur = QhttpClient->get(QString("/_/websvc/jsonforslagsboks.aspx?s="+debut));
   //  QMessageBox::information(NULL, "Titre de la fenêtre",QString(valeur));
     mapdebut[valeur]=debut;
+   }
 }
 
 QStringList autocomplete::traitementChaine(int i,bool erreur)
@@ -66,4 +69,13 @@ bool autocomplete::InCache(QString debut)
 QString autocomplete::getFormatquery(QString formatutilisateur)
 {
     return formatquery[formatutilisateur].remove("/sted/");
+}
+
+void autocomplete::setListeCourrante(QListWidget* listecourrant)
+{
+    this->currentListWidget=listecourrant;
+}
+QListWidget* autocomplete::ListeCourrante()
+{
+    return this->currentListWidget;
 }
