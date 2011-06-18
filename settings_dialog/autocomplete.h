@@ -5,6 +5,7 @@
 #include <QtNetwork/QHttp>
 #include <QComboBox>
 #include <QListWidget>
+#include <QtNetwork>
 class autocomplete : public QObject
 {
      Q_OBJECT
@@ -19,15 +20,17 @@ public:
     QListWidget* ListeCourrante();
     void setListeCourrante(QListWidget*);
 signals:
-    void requettereussie(QString);
+    void requetereussie(QString);
 public slots:
     QStringList traitementChaine(int,bool);
+    QStringList finishedSlot(QNetworkReply*);
 private :
         QHttp *QhttpClient;
         QStringList *ListeVilles;
         std::map<QString , QStringList> cache;
         std::map<QString , QString> formatquery;
-        std::map<int , QString> mapdebut;
+         QString debut;
+         QNetworkAccessManager *req;
          QListWidget *currentListWidget;
 };
 

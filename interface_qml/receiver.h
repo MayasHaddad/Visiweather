@@ -48,14 +48,15 @@
 #include <QString>
 #include <QXmlNamePool>
 
-typedef struct
+class Forecast
 {
+public :
     QHash<QString, QString> time;
     QHash<QString, QString> symbol;
     QHash<QString, QString> windDirection;
     QHash<QString, QString> windSpeed;
     QHash<QString, QString> temperature;
-} Forecast;
+};
 
 class Receiver : public QAbstractXmlReceiver
 {
@@ -64,9 +65,9 @@ public:
     void attribute(const QXmlName &name, const QStringRef &value);
     void endElement();
     void startElement(const QXmlName &name);
+    void characters(const QStringRef &);
 
     void atomicValue(const QVariant &) {}
-    void characters(const QStringRef &) {}
     void comment(const QString &) {}
     void endDocument() {}
     void endOfSequence() {}
@@ -77,6 +78,7 @@ public:
 
     QList<Forecast> forecasts;
     QHash<QString,QString>sun;
+    QString nextUpdate;
 private:
     QXmlNamePool namePool;
     QStack<QString> elements;

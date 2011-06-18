@@ -40,7 +40,7 @@
 ****************************************************************************/
 
 #include "receiver.h"
-
+#include<QMessageBox>
 Receiver::Receiver(const QXmlNamePool &namePool)
     : namePool(namePool)
 {
@@ -75,6 +75,10 @@ void Receiver::attribute(const QXmlName &xmlname, const QStringRef &valueref)
         sun[name] = value;
     }
 
+void Receiver::characters(const QStringRef &value)
+{
+     nextUpdate = value.toString();
+}
 void Receiver::startElement(const QXmlName &xmlname)
 {
     QString name = xmlname.localName(namePool);

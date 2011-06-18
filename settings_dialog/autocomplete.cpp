@@ -2,21 +2,59 @@
 #include <QtScript/QScriptEngine>
 #include <QtScript/QScriptValueIterator>
 #include <QMessageBox>
+#include <QtNetwork>
+
 autocomplete::autocomplete()
 {
-    QhttpClient= new QHttp("www.yr.no");
+//    QhttpClient= new QHttp("www.yr.no");
     ListeVilles= new QStringList("no data");
-    connect(QhttpClient,SIGNAL(requestFinished(int,bool)), this, SLOT(traitementChaine(int,bool)));
+    req = new QNetworkAccessManager(this);
+    QObject::connect(req, SIGNAL(finished(QNetworkReply*)),
+             this, SLOT(finishedSlot(QNetworkReply*)));
+//    connect(QhttpClient,SIGNAL(requestFinished(int,bool)), this, SLOT(traitementChaine(int,bool)));
+
 }
 
 void autocomplete::connexion(QString debut)
 {
    if(!(debut.startsWith(" ") || debut.isEmpty()))
    {
-        int valeur = QhttpClient->get(QString("/_/websvc/jsonforslagsboks.aspx?s="+debut));
+       this->debut=debut;
+       QUrl url= QUrl(QString("http://www.yr.no/_/websvc/jsonforslagsboks.aspx?s="+debut));
+       QNetworkRequest request=QNetworkRequest(url);
+       req->get(request);
+     //   int valeur = QhttpClient->get(QString("/_/websvc/jsonforslagsboks.aspx?s="+debut));
   //  QMessageBox::information(NULL, "Titre de la fenêtre",QString(valeur));
-    mapdebut[valeur]=debut;
+    //mapdebut[valeur]=debut;
    }
+}
+
+QStringList autocomplete::finishedSlot(QNetworkReply* reply)
+{
+    if(reply->error()==QNetworkReply::NoError)
+    {
+        QByteArray result;
+        result =reply->readAll();
+        QStringList liste;
+        QScriptValue sc;
+        QScriptEngine engine;
+        sc = engine.evaluate(QString(result));
+        if (sc.isArray())
+        {
+                 QScriptValueIterator it(sc.property(1));
+                 while (it.hasNext()) {
+                     it.next();
+                    liste << it.value().property(0).toString()+","+it.value().property(3).toString();
+                    // liste de correspondance des villes et /place/
+                    formatquery[it.value().property(0).toString()+","+it.value().property(3).toString()]=it.value().property(1).toString();
+                 }
+        }
+        addCache(debut,liste);
+   emit requetereussie((debut));
+        return liste;
+    } else
+        QMessageBox::information(NULL, "Titre de la fenêtre", "il y a une erreur "+reply->errorString());
+    return QStringList();
 }
 
 QStringList autocomplete::traitementChaine(int i,bool erreur)
@@ -45,9 +83,8 @@ QStringList autocomplete::traitementChaine(int i,bool erreur)
         combo->addItems(liste);
         combo->show();*/
        // QMessageBox::information(NULL, "Titre de la fenêtre",QString("[result:")+QString(result)+QString("]"));
-   addCache(mapdebut[i],liste);
-   emit requettereussie((mapdebut[i]));
-  mapdebut.erase(i);
+   addCache(debut,liste);
+   emit requetereussie((debut));
         return liste;
 }
 

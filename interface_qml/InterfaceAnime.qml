@@ -7,6 +7,7 @@ Item {
 
     // Let's draw the sky...
     Rectangle {
+		Text { text : con; x:20; y:20}
         anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.verticalCenter }
         gradient: Gradient {
             GradientStop {

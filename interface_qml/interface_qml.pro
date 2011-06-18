@@ -4,12 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui xmlpatterns
+QT       += core gui xmlpatterns network declarative
 
 TARGET = interface_qml
 TEMPLATE = app
 
- QT += gui declarative gui core
 
 SOURCES += main.cpp\
         qml_interface.cpp \
@@ -23,7 +22,7 @@ MOBILITY =
 
 symbian {
     TARGET.UID3 = 0xec7d4d2d
-    # TARGET.CAPABILITY += 
+     TARGET.CAPABILITY += NetworkServices
     TARGET.EPOCSTACKSIZE = 0x14000
     TARGET.EPOCHEAPSIZE = 0x020000 0x800000
 }

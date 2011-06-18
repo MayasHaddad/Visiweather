@@ -8,8 +8,8 @@ int main(int argc, char *argv[])
     QString place = argv[1];
     if (place.isNull())
     {
-        QFile file("place.txt");
-        if (file.exists("place.txt")){
+        QFile file("last_place.txt");
+        if (file.exists("last_place.txt")){
         file.open(QIODevice::ReadOnly);
         char cont[128];
         file.readLine(cont,sizeof(cont));
@@ -17,21 +17,20 @@ int main(int argc, char *argv[])
     }
         else return 1;
     }
-    else
+    else // argument place existant: sauvegarder
     {
-//        QFile file("place.txt");
-//        file.open(QIODevice::WriteOnly);
-//        char cont[128];
-//        cont= place.toLatin1();
-//        QByteArray ba(cont);
-//        file.write(ba);
+        QFile file("last_place.txt");
+        file.open(QIODevice::WriteOnly);
+        file.write(place.toUtf8());
+       file.close();
     }
     qml_interface w(place);
-#if defined(Q_WS_S60)
-    w.showMaximized();
-#else
-    w.showMaximized();
-#endif
+w.affiche();
+//#if defined(Q_WS_S60)
+//    w.showMaximized();
+//#else
+//    w.showMaximized();
+//#endif
 
     return a.exec();
 }

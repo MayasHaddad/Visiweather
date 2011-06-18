@@ -1,5 +1,8 @@
 #include "settingswindow.h"
 #include "autocomplete.h"
+#include <QtNetwork>
+#include <QEvent>
+#include <QKeyEvent>
 settingsWindow::settingsWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -45,6 +48,9 @@ settingsWindow::settingsWindow(QWidget *parent)
     layoutLineEditPushButton->addWidget(pushButton);
     Layout_choix->addLayout(layoutLineEditPushButton, 1, 0, 1, 1);
 
+    list = new QListWidget(this);
+    list->installEventFilter(this);
+    list->hide();
 
     grandlayout->addLayout(Layout_choix, 0, 0, 1, 1);
 
@@ -69,12 +75,12 @@ settingsWindow::settingsWindow(QWidget *parent)
     retranslateUi(this);
     QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(ville_choisie()));
     QObject::connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(fonctionner_en_hors_connex()));
-    QObject::connect(complete,SIGNAL(requettereussie(QString)),this,SLOT(creeCompleter(QString)));
+    QObject::connect(complete,SIGNAL(requetereussie(QString)),this,SLOT(creeCompleter(QString)));
     //QObject::connect(complete,SIGNAL(requettereussie(QString)),this,SLOT(chaban(QString)));
     QObject::connect(this,SIGNAL(cdanslcache(QString)),this,SLOT(creeCompleter(QString)));
     QObject::connect(lineEdit,SIGNAL(textEdited(QString)),this,SLOT(reConnec(QString)));
-
-
+    QObject::connect(list,SIGNAL(currentTextChanged (QString)),this,SLOT(setext(QString)));
+    QObject::connect(list,SIGNAL(itemActivated(QListWidgetItem*)),this,SLOT(hidelist()));
     QMetaObject::connectSlotsByName(this);
     process = new QProcess();
     lance=false;
@@ -139,24 +145,31 @@ void settingsWindow::creeCompleter(QString debut)
 {
     if(complete->ListeCourrante())
     {
-        complete->ListeCourrante()->hide();
+        complete->ListeCourrante();
     }
     wordList = complete->getListeVilles(debut);
     wordList.removeLast();
-    QListWidget *list = new QListWidget(this);
     complete->setListeCourrante(list);
-    QObject::connect(list,SIGNAL(currentTextChanged (QString)),this,SLOT(setext(QString)));
-    QObject::connect(list,SIGNAL(itemActivated(QListWidgetItem*)),this,SLOT(hidelist(QListWidgetItem*)));
+    if(!wordList.isEmpty())
+    {
     list->addItems(wordList);
     list->move(lineEdit->x()+20,lineEdit->y()+43);
     list->setFixedSize(lineEdit->width(),150);
+    //list->setCurrentItem(list->itemAt(0,0));
     list->show();
+    }
 }
 
 void settingsWindow::reConnec(QString nouvotext)     // une fois le completer créé la premiere fois Il doit etre recréé apres qu'une touche a ete tapée
 {
+    if(list->isVisible())
+    {
+        list->clear();
+        list->hide();
+    }
     if(complete->InCache(nouvotext)) emit cdanslcache(nouvotext);
-    else complete->connexion(nouvotext);
+    else
+        complete->connexion(nouvotext);
 }
 
  void settingsWindow::setext(QString ville)
@@ -164,10 +177,60 @@ void settingsWindow::reConnec(QString nouvotext)     // une fois le completer cr
     lineEdit->setText(ville);
  }
 
- void settingsWindow::hidelist(QListWidgetItem *item)
+ void settingsWindow::hidelist()
  {
-   item->listWidget()->hide();
+   list->hide();
  }
+
+ bool settingsWindow::eventFilter(QObject *obj, QEvent *ev)
+ {
+     if (obj != list)
+     {
+         return false;
+     }
+     if (ev->type() == QEvent::MouseButtonPress) {
+         list->hide();
+         lineEdit->setFocus();
+         return true;
+     }
+
+     if (ev->type() == QEvent::KeyPress) {
+
+         bool consumed = false;
+         int key = static_cast<QKeyEvent*>(ev)->key();
+         switch (key) {
+         case Qt::Key_Enter:
+         case Qt::Key_Return:
+//             doneCompletion();
+             consumed = true;
+
+         case Qt::Key_Escape:
+             lineEdit->setFocus();
+             list->hide();
+             consumed = true;
+
+         case Qt::Key_Up:
+         case Qt::Key_Down:
+         case Qt::Key_Home:
+         case Qt::Key_End:
+         case Qt::Key_PageUp:
+         case Qt::Key_PageDown:
+             break;
+
+         default:
+             lineEdit->setFocus();
+             lineEdit->event(ev);
+             list->hide();
+             break;
+         }
+
+         return consumed;
+     }
+
+     return false;
+ }
+
+
 settingsWindow::~settingsWindow()
 {
 

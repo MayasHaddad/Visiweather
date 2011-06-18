@@ -2,7 +2,7 @@
 #include "settingswindow.h"
 #include <QNetworkConfiguration>
 #include <QNetworkConfigurationManager>
-#include <sym_iap_util.h>
+#include <QtNetwork>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

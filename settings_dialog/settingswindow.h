@@ -32,6 +32,7 @@ public:
     settingsWindow(QWidget *parent = 0);
     void retranslateUi(QMainWindow *settingsWindow);
     QString get_concat();
+    bool eventFilter(QObject *obj, QEvent *ev);
     ~settingsWindow();
 signals:
     void cdanslcache(QString);
@@ -42,7 +43,7 @@ public slots:
     void creeCompleter(QString);
     void reConnec(QString);
      void setext(QString);
-     void hidelist(QListWidgetItem*);
+     void hidelist();
 private:
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget_2;
@@ -60,6 +61,7 @@ private:
     std::map<QString , QCompleter *> completer;
     QProcess *process;
     QStringList wordList;
+    QListWidget*list;
     autocomplete *complete;
     bool lance;
 };
