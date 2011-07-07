@@ -39,15 +39,23 @@ QStringList autocomplete::finishedSlot(QNetworkReply* reply)
         QScriptValue sc;
         QScriptEngine engine;
         sc = engine.evaluate(QString(result));
+        QRegExp formatValid("/sted/(.+/){3}");
+        QRegExpValidator v(formatValid,this);
+        QString *str=new QString();
+        int h=0;
         if (sc.isArray())
         {
                  QScriptValueIterator it(sc.property(1));
                  while (it.hasNext()) {
                      it.next();
-                    liste << it.value().property(0).toString()+","+it.value().property(3).toString();
+                     *str=QString::fromUtf8(it.value().property(1).toString().toAscii());
+                     if (v.validate(*str,h)==QValidator::Acceptable)
+                     {
+                    liste << QString::fromUtf8(it.value().property(0).toString().toAscii())+","+it.value().property(3).toString();
                     // liste de correspondance des villes et /place/
-                    formatquery[it.value().property(0).toString()+","+it.value().property(3).toString()]=it.value().property(1).toString();
-                 }
+                    formatquery[QString::fromUtf8(it.value().property(0).toString().toAscii())+","+it.value().property(3).toString()]=QString::fromUtf8(it.value().property(1).toString().toAscii());
+                     }
+                     }
         }
         addCache(debut,liste);
    emit requetereussie((debut));

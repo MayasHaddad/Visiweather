@@ -6,83 +6,41 @@
 #include <QDeclarativeContext>
 #include <QtNetwork>
 #include "receiver.h"
-#define MaRequete "declare variable $url external;\n" \
-    "\n"\
-    "doc($url)//nextupdate,\n" \
-    "\n" \
-    "doc($url)//sun,\n"\
-    "for $time in doc($url)//tabular/time\n"\
-    "    return <time>\n"\
-    "       { $time/@from }\n"\
-    "       { $time/@to }\n"\
-    "        <symbol>\n"\
-    " { $time/symbol/@number, $time/symbol/@name } \n"\
-    "        </symbol>\n"\
-    "        <windDirection>\n"\
-    " { $time/windDirection/@code } \n"\
-    "        </windDirection>\n"\
-    "        <windSpeed>\n"\
-    " { $time/windSpeed/@mps } \n"\
-    "        </windSpeed>\n"\
-    "       <temperature>\n"\
-    "           { $time/temperature/@value, $time/temperature/@unit }\n"\
-    "       </temperature>\n"\
-    "       </time>"
+#include "dataloader.h"
 
 qml_interface::qml_interface(QString place, QWidget *parent)
     : QMainWindow(parent)
 {
     localisation=place;
-    QNetworkAccessManager *acces = new QNetworkAccessManager(this);
-    if (acces->networkAccessible()== QNetworkAccessManager::Accessible)
+    if (localisation == "none") // Fonctionner à defaut de localisation (hors connexion)
     {
-        QMessageBox *hh=new QMessageBox();
-        hh->aboutQt(this);
+       this->mode=0;
+       forecastAleatoire();
+        }
+    else
+    {
+         QNetworkAccessManager *acces = new QNetworkAccessManager(this);
+        acces->setNetworkAccessible(QNetworkAccessManager::Accessible);
+        if (acces->networkAccessible()== QNetworkAccessManager::NotAccessible){
+        }
+        QDialog *nn=new QDialog();
+                nn->show();
+    dataloader *loader = new dataloader();
+    loader->fetchForecast(localisation,this);
     }
-    this->fetchForecast(localisation,0);
+    noDataAvaible = new QMessageBox();
     view= new QDeclarativeView();
     view->rootContext()->setContextProperty("interfce",this);
-    view->setSource(QUrl::fromLocalFile("InterfaceAnime.qml"));
-   // QObject *objet= view->rootObject();
-//    objet->setProperty("width",10);
+    view->setSource(QUrl("C://InterfaceAnime.qml"));
+    view->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
+    this->setSymbol();
     QObject::connect(view->rootObject(), SIGNAL(update()),
                           this, SLOT(updateSlot()));
-
-}
-
-void qml_interface::fetchForecast(QString place, int connexion)
-{
-   QString url;
-   if (connexion == NewConnection)
-   {
-       url = QString("http://www.yr.no/place/%1/forecast.xml").arg(place);
-       QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-        connect(manager, SIGNAL(finished(QNetworkReply*)),
-                this, SLOT(replyFinished(QNetworkReply*)));
-        manager->get(QNetworkRequest(url));
    }
-       else // Traiter le fichier local
-   {
-        QDir *nomfichier = new QDir();
-        url= nomfichier->absoluteFilePath("forecast.xml");
-   }
-   QXmlQuery query;
-    query.bindVariable("url", QXmlItem(QVariant(url)));
-    query.setQuery(MaRequete);
-    Receiver receiver(query.namePool());
-    if (query.isValid()) {
-        if (query.evaluateTo(&receiver)) {
-            leveSoleil=QDateTime::fromString(receiver.sun["rise"]);
-            coucheSoleil=QDateTime::fromString(receiver.sun["set"]);
-            nextUpdate=QDateTime::fromString(receiver.nextUpdate);
-        }
-            this->forecasts=receiver.forecasts;
-        }
-}
-
 
 void qml_interface::affiche()
 {
+    view->setFixedSize(640,480);
     view->show();
 }
 
@@ -103,6 +61,8 @@ Forecast qml_interface::getCurrentForecast(QDateTime time)
     }
     if (!actuelle)
     {
+        noDataAvaible->setText("Données indisponibles pour cette periode");
+        noDataAvaible->show();
     }
     return currentForecast;
 }
@@ -117,11 +77,37 @@ QString qml_interface::getTemperature()
     return getCurrentForecast().temperature["value"];
 }
 
-QString qml_interface::getSymbol()
+void qml_interface::setSymbol()
 {
     QString Symbol =getCurrentForecast().symbol["name"];
-    if (Symbol == "Fog") emit ItFogz();
-    return Symbol;
+    if (Symbol == "Fog") emit itFogz();
+    else if((Symbol == "Sun") || (Symbol == "clear sky")) emit destroyAll();
+    else if(Symbol == "Fair") emit fair();
+    else if(Symbol == "Partly cloudy") emit pCloudy();
+    else if(Symbol == "Cloudy") emit cloudy();
+    else if(Symbol == "Rain showers") {emit cloudy(); emit rain();}
+    else if(Symbol == "Rain showers with thunder") { emit cloudy(); emit rain(); emit thunder();}
+    else if((Symbol == "Sleet showers") || (Symbol == "Sleet")) {emit cloudy(); emit snow(); emit rain();}
+    else if(Symbol == "Snow showers") {emit cloudy(); emit snow();}
+    else if((Symbol == "Rain") || (Symbol == "Heavy rain")){emit cloudy(); emit rain();}
+    else if(Symbol == "Rain and thunder"){emit cloudy(); emit rain(); emit thunder();}
+    else if(Symbol == "Snow"){emit cloudy(); emit snow();}
+    else if(Symbol == "Snow and thunder")   {emit cloudy(); emit snow(); emit thunder();}
+}
+
+QString qml_interface::getSymbol()
+{
+    return getCurrentForecast().symbol["name"];
+}
+
+QString qml_interface::getFrequence()
+{
+    QString Symbol =getCurrentForecast().symbol["name"];
+    if(Symbol == "Rain") return "50";
+    if(Symbol =="Snow") return "50";
+    if(Symbol=="Sleet") return "50";
+    else if((Symbol == "Rain showers") || (Symbol== "Snow showers") || (Symbol== "Sleet showers")) return "5";
+    else /*if(Symbol == "Heavy rain")*/ return "100";
 }
 
 QString qml_interface::getWindDirection()
@@ -300,11 +286,11 @@ int qml_interface::getPositionCiel()
    case 12:
        {
            if((mois<3 && mois>0) || (mois==12))
-               return 360;
+               return 355;
            if((mois>=3 && mois<6) ||( mois>=9 && mois<=11))
-               return 370;
+               return 360;
            if(mois>=6 && mois<=8)
-               return 365;
+               return 370;
        }
    case 13:
        {
@@ -459,14 +445,13 @@ int qml_interface::getPositionCiel()
          if((mois>=3 && mois<6) ||( mois>=9 && mois<=11))
              return 130;
         }
-   }
-
+}
 }
 
 void qml_interface::ItFogs()
 {
     if (getCurrentForecast().symbol["name"]=="Fog")
-    emit ItFogz();
+    emit itFogz();
 }
 
 QString qml_interface::getNextUpdate()
@@ -476,20 +461,37 @@ QString qml_interface::getNextUpdate()
 
 void qml_interface::updateSlot()
 {
+
     if(nextUpdate < QDateTime::currentDateTime())
     {
-        fetchForecast(localisation,NewConnection);
+        dataloader *loader = new dataloader();
+        loader->fetchForecast(localisation,this);
+        this->setSymbol();
     }
 }
 
-void qml_interface::replyFinished(QNetworkReply* reponse)
+QString qml_interface::getRandomInteger()
 {
-    QByteArray xml=reponse->readAll();
-    QFile myfile("forecast.xml");
-    myfile.open(QIODevice::WriteOnly);
-    myfile.write(xml);
-    myfile.close();
+    int i=rand()%100+1;
+    return QString::number(i);
 }
+
+void qml_interface::forecastAleatoire()
+{
+    int i;
+    Forecast forecast;
+    for (i=0;i<10;i++)
+    {
+     forecast.time["from"]=QDateTime::currentDateTime().addDays(i).toString("yyyy-MM-ddThh:mm:ss");
+     forecast.time["to"]=QDateTime::currentDateTime().addDays(i+1).toString("yyyy-MM-ddThh:mm:ss");
+     forecast.windSpeed["mps"]="3";
+     forecast.windDirection["code"]="NNE";
+     forecast.temperature["value"]="20";
+     forecast.symbol["name"]="Fair";
+     this->forecasts.append(forecast);
+    }
+}
+
 qml_interface::~qml_interface()
 {
 

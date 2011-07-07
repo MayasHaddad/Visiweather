@@ -51,16 +51,6 @@ void Receiver::attribute(const QXmlName &xmlname, const QStringRef &valueref)
     QString name = xmlname.localName(namePool);
     QString value = valueref.toString();
     QString currentElement = elements.top();
-
-//    switch (currentElement) {
-//    case "time" :  currentForecast.time[name] = value; break;
-//    case "symbol" : currentForecast.symbol[name] = value;break;
-//    case "windDirection" : currentForecast.windDirection[name] = value;break;
-//    case "windSpeed" : currentForecast.windSpeed[name] = value;break;
-//    case "sun" : sun[name] = value;
-//        break;
-//    }
-
     if (currentElement == "time")
         currentForecast.time[name] = value;
         else if (currentElement == "symbol")
@@ -93,4 +83,3 @@ void Receiver::endElement()
     if (elements.pop() == "time")
         forecasts.append(currentForecast);
 }
-

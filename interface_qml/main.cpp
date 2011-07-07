@@ -15,22 +15,17 @@ int main(int argc, char *argv[])
         file.readLine(cont,sizeof(cont));
         place= QString(cont);
     }
-        else return 1;
+        else place="none"; // Lancement de l'application sans localisation
     }
-    else // argument place existant: sauvegarder
+    else // argument "place" existant: sauvegarder dans le fichier last_place.txt
     {
         QFile file("last_place.txt");
         file.open(QIODevice::WriteOnly);
         file.write(place.toUtf8());
        file.close();
     }
-    qml_interface w(place);
-w.affiche();
-//#if defined(Q_WS_S60)
-//    w.showMaximized();
-//#else
-//    w.showMaximized();
-//#endif
 
+    qml_interface w(place);
+    w.affiche();
     return a.exec();
 }

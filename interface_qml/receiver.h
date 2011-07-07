@@ -75,7 +75,6 @@ public:
     void processingInstruction(const QXmlName &, const QString &) {}
     void startDocument() {}
     void startOfSequence() {}
-
     QList<Forecast> forecasts;
     QHash<QString,QString>sun;
     QString nextUpdate;

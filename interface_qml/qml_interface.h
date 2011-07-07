@@ -1,7 +1,7 @@
 #ifndef QML_INTERFACE_H
 #define QML_INTERFACE_H
 
-#include <QtGui/QMainWindow>
+#include <QtGui>
 #include <QtNetwork>
 #include <QDeclarativeView>
 #include <iostream>
@@ -13,15 +13,14 @@ class qml_interface : public QMainWindow
 {
     Q_OBJECT
 
-    Q_PROPERTY(Forecast getCurrentForecast READ getCurrentForecast NOTIFY ItFogz)
 public:
     qml_interface(QString place, QWidget *parent = 0);
-    void fetchForecast(QString place = 0, int connexion = NewConnection);
+   // void fetchForecast(QString place = 0, int connexion = NewConnection);
     Forecast getCurrentForecast(QDateTime time=QDateTime::currentDateTime().addDays(1)); // Retourne la structure forecast correspondant a l'instant present
     void affiche();
+    void forecastAleatoire();
     Q_INVOKABLE QString getWindSpeed();
     Q_INVOKABLE QString getWindDirection();
-    Q_INVOKABLE QString getSymbol();
     Q_INVOKABLE QString getTemperature();
     Q_INVOKABLE QString getTime();
     Q_INVOKABLE QString depsurx();
@@ -31,24 +30,35 @@ public:
     Q_INVOKABLE QString depsurz();
     Q_INVOKABLE QString arvsurz();
     Q_INVOKABLE QString getNextUpdate();
+    Q_INVOKABLE QString getFrequence();
+    Q_INVOKABLE QString getSymbol();
     Q_INVOKABLE void ItFogs();
     Q_INVOKABLE int getPositionCiel();
+    Q_INVOKABLE void setSymbol();
+    Q_INVOKABLE QString getRandomInteger();
+    QList<Forecast> forecasts;
     ~qml_interface();
 private:
     QDeclarativeView *view;
-    QList<Forecast> forecasts;
     float dureJour;
     QDateTime leveSoleil;
     QDateTime coucheSoleil;
     QDateTime nextUpdate;
     QString localisation;
+    int mode;
+    QMessageBox *noDataAvaible;
 signals:
-    int ItFogz();
-    int ItRains();
+    void itFogz();
+    void destroyAll();
+    void fair();
+    void pCloudy();
+    void cloudy();
+    void rain();
+    void thunder();
+    void snow();
 
 public slots :
     void updateSlot();
-    void replyFinished(QNetworkReply*);
 };
 
 #endif // QML_INTERFACE_H

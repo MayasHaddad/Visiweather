@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'settingswindow.h'
 **
-** Created: Sat 18. Jun 10:54:58 2011
+** Created: Thu 7. Jul 20:19:44 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -50,7 +50,7 @@ static const char qt_meta_stringdata_settingsWindow[] = {
     "ville_choisie()\0fonctionner_en_hors_connex()\0"
     "recup_channel()\0creeCompleter(QString)\0"
     "reConnec(QString)\0setext(QString)\0"
-    "hidelist()\0"
+    "hidelist(QListWidgetItem*)\0"
 };
 
 const QMetaObject settingsWindow::staticMetaObject = {
@@ -89,7 +89,7 @@ int settingsWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 4: creeCompleter((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 5: reConnec((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 6: setext((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 7: hidelist(); break;
+        case 7: hidelist((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
         default: ;
         }
         _id -= 8;

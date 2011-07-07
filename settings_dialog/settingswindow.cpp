@@ -49,7 +49,7 @@ settingsWindow::settingsWindow(QWidget *parent)
     Layout_choix->addLayout(layoutLineEditPushButton, 1, 0, 1, 1);
 
     list = new QListWidget(this);
-    list->installEventFilter(this);
+    //list->installEventFilter(this);
     list->hide();
 
     grandlayout->addLayout(Layout_choix, 0, 0, 1, 1);
@@ -59,7 +59,9 @@ settingsWindow::settingsWindow(QWidget *parent)
 
     grandlayout->addWidget(labelVilleOk, 1, 0, 1, 1);
 
-
+    QLabel *labelYrNo = new QLabel(verticalLayoutWidget_2);
+    labelYrNo->setText("Weather forecast from yr.no,<br/> delivered by the Norwegian Meteorological Institute and the NRK");
+    grandlayout->addWidget(labelYrNo, 1, 0, 1, 1);
     layoutWidget_2->addLayout(grandlayout);
 
     checkBox = new QCheckBox(verticalLayoutWidget_2);
@@ -76,11 +78,9 @@ settingsWindow::settingsWindow(QWidget *parent)
     QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(ville_choisie()));
     QObject::connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(fonctionner_en_hors_connex()));
     QObject::connect(complete,SIGNAL(requetereussie(QString)),this,SLOT(creeCompleter(QString)));
-    //QObject::connect(complete,SIGNAL(requettereussie(QString)),this,SLOT(chaban(QString)));
     QObject::connect(this,SIGNAL(cdanslcache(QString)),this,SLOT(creeCompleter(QString)));
     QObject::connect(lineEdit,SIGNAL(textEdited(QString)),this,SLOT(reConnec(QString)));
-    QObject::connect(list,SIGNAL(currentTextChanged (QString)),this,SLOT(setext(QString)));
-    QObject::connect(list,SIGNAL(itemActivated(QListWidgetItem*)),this,SLOT(hidelist()));
+    QObject::connect(list,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(hidelist(QListWidgetItem*)));
     QMetaObject::connectSlotsByName(this);
     process = new QProcess();
     lance=false;
@@ -109,17 +109,16 @@ QString settingsWindow::get_concat()
 void settingsWindow::ville_choisie()
 {
     labelVilleOk->setText(complete->getFormatquery(lineEdit->text()));
-   /* QStringList place = QString("");
-                     place <<  lineEdit->text();
-    process->startDetached("C:\\Visiweather1\\chercheur_donnee_meteo",place);
-*/
+      QStringList place;
+      place.append(complete->getFormatquery(lineEdit->text()));
+   process->startDetached("C:\\Visiweather1\\interface_qml-build-desktop\\debug\\interface_qml.exe",place);
 }
 
 void settingsWindow::fonctionner_en_hors_connex()
 {
    if(checkBox->isChecked() && lance==false)
     {
-  // process->setWorkingDirectory ("");
+  //  process->setWorkingDirectory ("C:\\Visiweather1\\interface_qml-build-desktop");
     process->startDetached("C:\\Visiweather1\\interface_qml-build-desktop\\release\\interface_qml.exe");
     lance=true;
     process->setReadChannel(QProcess::StandardOutput);
@@ -148,15 +147,15 @@ void settingsWindow::creeCompleter(QString debut)
         complete->ListeCourrante();
     }
     wordList = complete->getListeVilles(debut);
-    wordList.removeLast();
-    complete->setListeCourrante(list);
     if(!wordList.isEmpty())
     {
+        wordList.removeLast();
+        complete->setListeCourrante(list);
     list->addItems(wordList);
-    list->move(lineEdit->x()+20,lineEdit->y()+43);
+    list->move(lineEdit->x()+20,lineEdit->y()+50);
     list->setFixedSize(lineEdit->width(),150);
-    //list->setCurrentItem(list->itemAt(0,0));
     list->show();
+    lineEdit->setFocus();
     }
 }
 
@@ -177,8 +176,9 @@ void settingsWindow::reConnec(QString nouvotext)     // une fois le completer cr
     lineEdit->setText(ville);
  }
 
- void settingsWindow::hidelist()
+ void settingsWindow::hidelist(QListWidgetItem* item)
  {
+     lineEdit->setText(item->text());
    list->hide();
  }
 
@@ -193,7 +193,6 @@ void settingsWindow::reConnec(QString nouvotext)     // une fois le completer cr
          lineEdit->setFocus();
          return true;
      }
-
      if (ev->type() == QEvent::KeyPress) {
 
          bool consumed = false;
@@ -201,7 +200,6 @@ void settingsWindow::reConnec(QString nouvotext)     // une fois le completer cr
          switch (key) {
          case Qt::Key_Enter:
          case Qt::Key_Return:
-//             doneCompletion();
              consumed = true;
 
          case Qt::Key_Escape:

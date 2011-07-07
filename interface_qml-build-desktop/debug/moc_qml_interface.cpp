@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qml_interface.h'
 **
-** Created: Sat 18. Jun 12:29:33 2011
-**      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
+** Created: Thu 7. Jul 22:28:38 2011
+**      by: The Qt Meta Object Compiler version 62 (Qt 4.7.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'qml_interface.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 62
-#error "This file was generated using the moc from 4.7.0. It"
+#error "This file was generated using the moc from 4.7.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -23,55 +23,58 @@ static const uint qt_meta_data_qml_interface[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
-       1,  104, // properties
+      26,   14, // methods
+       0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       8,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
-      19,   14,   15,   14, 0x05,
-      28,   14,   15,   14, 0x05,
+      15,   14,   14,   14, 0x05,
+      24,   14,   14,   14, 0x05,
+      37,   14,   14,   14, 0x05,
+      44,   14,   14,   14, 0x05,
+      54,   14,   14,   14, 0x05,
+      63,   14,   14,   14, 0x05,
+      70,   14,   14,   14, 0x05,
+      80,   14,   14,   14, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      38,   14,   14,   14, 0x0a,
-      51,   14,   14,   14, 0x0a,
+      87,   14,   14,   14, 0x0a,
 
  // methods: signature, parameters, type, tag, flags
-      89,   14,   81,   14, 0x02,
-     104,   14,   81,   14, 0x02,
-     123,   14,   81,   14, 0x02,
-     135,   14,   81,   14, 0x02,
-     152,   14,   81,   14, 0x02,
-     162,   14,   81,   14, 0x02,
-     172,   14,   81,   14, 0x02,
-     182,   14,   81,   14, 0x02,
-     192,   14,   81,   14, 0x02,
-     202,   14,   81,   14, 0x02,
-     212,   14,   81,   14, 0x02,
-     222,   14,   81,   14, 0x02,
-     238,   14,   14,   14, 0x02,
-     247,   14,   15,   14, 0x02,
-
- // properties: name, type, flags
-     274,  265, 0x00495009,
-
- // properties: notify_signal_id
-       0,
+     108,   14,  100,   14, 0x02,
+     123,   14,  100,   14, 0x02,
+     142,   14,  100,   14, 0x02,
+     159,   14,  100,   14, 0x02,
+     169,   14,  100,   14, 0x02,
+     179,   14,  100,   14, 0x02,
+     189,   14,  100,   14, 0x02,
+     199,   14,  100,   14, 0x02,
+     209,   14,  100,   14, 0x02,
+     219,   14,  100,   14, 0x02,
+     229,   14,  100,   14, 0x02,
+     245,   14,  100,   14, 0x02,
+     260,   14,  100,   14, 0x02,
+     272,   14,   14,   14, 0x02,
+     285,   14,  281,   14, 0x02,
+     303,   14,   14,   14, 0x02,
+     315,   14,  100,   14, 0x02,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_qml_interface[] = {
-    "qml_interface\0\0int\0ItFogz()\0ItRains()\0"
-    "updateSlot()\0replyFinished(QNetworkReply*)\0"
-    "QString\0getWindSpeed()\0getWindDirection()\0"
-    "getSymbol()\0getTemperature()\0getTime()\0"
-    "depsurx()\0arvsurx()\0depsury()\0arvsury()\0"
-    "depsurz()\0arvsurz()\0getNextUpdate()\0"
-    "ItFogs()\0getPositionCiel()\0Forecast\0"
-    "getCurrentForecast\0"
+    "qml_interface\0\0itFogz()\0destroyAll()\0"
+    "fair()\0pCloudy()\0cloudy()\0rain()\0"
+    "thunder()\0snow()\0updateSlot()\0QString\0"
+    "getWindSpeed()\0getWindDirection()\0"
+    "getTemperature()\0getTime()\0depsurx()\0"
+    "arvsurx()\0depsury()\0arvsury()\0depsurz()\0"
+    "arvsurz()\0getNextUpdate()\0getFrequence()\0"
+    "getSymbol()\0ItFogs()\0int\0getPositionCiel()\0"
+    "setSymbol()\0getRandomInteger()\0"
 };
 
 const QMetaObject qml_interface::staticMetaObject = {
@@ -103,84 +106,99 @@ int qml_interface::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: { int _r = ItFogz();
+        case 0: itFogz(); break;
+        case 1: destroyAll(); break;
+        case 2: fair(); break;
+        case 3: pCloudy(); break;
+        case 4: cloudy(); break;
+        case 5: rain(); break;
+        case 6: thunder(); break;
+        case 7: snow(); break;
+        case 8: updateSlot(); break;
+        case 9: { QString _r = getWindSpeed();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 10: { QString _r = getWindDirection();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 11: { QString _r = getTemperature();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 12: { QString _r = getTime();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 13: { QString _r = depsurx();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 14: { QString _r = arvsurx();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 15: { QString _r = depsury();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 16: { QString _r = arvsury();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 17: { QString _r = depsurz();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 18: { QString _r = arvsurz();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 19: { QString _r = getNextUpdate();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 20: { QString _r = getFrequence();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 21: { QString _r = getSymbol();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 22: ItFogs(); break;
+        case 23: { int _r = getPositionCiel();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
-        case 1: { int _r = ItRains();
-            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
-        case 2: updateSlot(); break;
-        case 3: replyFinished((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 4: { QString _r = getWindSpeed();
+        case 24: setSymbol(); break;
+        case 25: { QString _r = getRandomInteger();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 5: { QString _r = getWindDirection();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 6: { QString _r = getSymbol();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 7: { QString _r = getTemperature();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 8: { QString _r = getTime();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 9: { QString _r = depsurx();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 10: { QString _r = arvsurx();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 11: { QString _r = depsury();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 12: { QString _r = arvsury();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 13: { QString _r = depsurz();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 14: { QString _r = arvsurz();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 15: { QString _r = getNextUpdate();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 16: ItFogs(); break;
-        case 17: { int _r = getPositionCiel();
-            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         default: ;
         }
-        _id -= 18;
+        _id -= 26;
     }
-#ifndef QT_NO_PROPERTIES
-      else if (_c == QMetaObject::ReadProperty) {
-        void *_v = _a[0];
-        switch (_id) {
-        case 0: *reinterpret_cast< Forecast*>(_v) = getCurrentForecast(); break;
-        }
-        _id -= 1;
-    } else if (_c == QMetaObject::WriteProperty) {
-        _id -= 1;
-    } else if (_c == QMetaObject::ResetProperty) {
-        _id -= 1;
-    } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 1;
-    } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 1;
-    } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 1;
-    } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 1;
-    } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 1;
-    }
-#endif // QT_NO_PROPERTIES
     return _id;
 }
 
 // SIGNAL 0
-int qml_interface::ItFogz()
+void qml_interface::itFogz()
 {
-    int _t0;
-    void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(&_t0)) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
-    return _t0;
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 
 // SIGNAL 1
-int qml_interface::ItRains()
+void qml_interface::destroyAll()
 {
-    int _t0;
-    void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(&_t0)) };
-    QMetaObject::activate(this, &staticMetaObject, 1, _a);
-    return _t0;
+    QMetaObject::activate(this, &staticMetaObject, 1, 0);
+}
+
+// SIGNAL 2
+void qml_interface::fair()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, 0);
+}
+
+// SIGNAL 3
+void qml_interface::pCloudy()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, 0);
+}
+
+// SIGNAL 4
+void qml_interface::cloudy()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, 0);
+}
+
+// SIGNAL 5
+void qml_interface::rain()
+{
+    QMetaObject::activate(this, &staticMetaObject, 5, 0);
+}
+
+// SIGNAL 6
+void qml_interface::thunder()
+{
+    QMetaObject::activate(this, &staticMetaObject, 6, 0);
+}
+
+// SIGNAL 7
+void qml_interface::snow()
+{
+    QMetaObject::activate(this, &staticMetaObject, 7, 0);
 }
 QT_END_MOC_NAMESPACE
