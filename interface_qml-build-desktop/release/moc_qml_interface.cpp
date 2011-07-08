@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qml_interface.h'
 **
-** Created: Thu 7. Jul 22:29:17 2011
+** Created: Fri 8. Jul 07:38:34 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_qml_interface[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-      26,   14, // methods
+      27,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -61,6 +61,7 @@ static const uint qt_meta_data_qml_interface[] = {
      285,   14,  281,   14, 0x02,
      303,   14,   14,   14, 0x02,
      315,   14,  100,   14, 0x02,
+     334,   14,   14,   14, 0x02,
 
        0        // eod
 };
@@ -75,6 +76,7 @@ static const char qt_meta_stringdata_qml_interface[] = {
     "arvsurz()\0getNextUpdate()\0getFrequence()\0"
     "getSymbol()\0ItFogs()\0int\0getPositionCiel()\0"
     "setSymbol()\0getRandomInteger()\0"
+    "thunderEmetor()\0"
 };
 
 const QMetaObject qml_interface::staticMetaObject = {
@@ -147,9 +149,10 @@ int qml_interface::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 24: setSymbol(); break;
         case 25: { QString _r = getRandomInteger();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 26: thunderEmetor(); break;
         default: ;
         }
-        _id -= 26;
+        _id -= 27;
     }
     return _id;
 }

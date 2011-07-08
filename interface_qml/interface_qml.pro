@@ -4,8 +4,8 @@
 #
 #-------------------------------------------------
 
-folder_01.source = c:\\Visiweather1\\interface_qml-build-desktop
-folder_01.target = qml
+folder_01.source = c:\\Visiweather1\\rcs
+folder_01.target = .
 DEPLOYMENTFOLDERS = folder_01
 
 QT       += core gui xmlpatterns network declarative
@@ -35,14 +35,5 @@ symbian {
     TARGET.EPOCHEAPSIZE = 0x020000 0x800000
 }
 
-RESOURCES +=
-
-OTHER_FILES += \
-    qtc_packaging/debian_fremantle/rules \
-    qtc_packaging/debian_fremantle/README \
-    qtc_packaging/debian_fremantle/copyright \
-    qtc_packaging/debian_fremantle/control \
-    qtc_packaging/debian_fremantle/compat \
-    qtc_packaging/debian_fremantle/changelog \
-    InterfaceAnime.qml \
-    InterfaceAnime.qml
+include(qmlapplicationviewer.pri)
+qtcAddDeployment()

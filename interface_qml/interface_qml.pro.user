@@ -2,7 +2,7 @@
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
-  <value type="int">0</value>
+  <value type="int">1</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.EditorSettings</variable>
@@ -144,9 +144,9 @@
       <value key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName" type="QString">Créer le paquet SIS</value>
       <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Créer le paquet SIS</value>
       <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.S60SignBuildStep</value>
-      <value key="Qt4ProjectManager.S60CreatePackageStep.Certificate" type="QString"></value>
-      <value key="Qt4ProjectManager.S60CreatePackageStep.Keyfile" type="QString"></value>
-      <value key="Qt4ProjectManager.S60CreatePackageStep.SignMode" type="int">0</value>
+      <value key="Qt4ProjectManager.S60CreatePackageStep.Certificate" type="QString">C:/Users/mayas/Downloads/developercertificate.cer</value>
+      <value key="Qt4ProjectManager.S60CreatePackageStep.Keyfile" type="QString">C:/Users/mayas/Downloads/developercertificate.key</value>
+      <value key="Qt4ProjectManager.S60CreatePackageStep.SignMode" type="int">1</value>
       <value key="Qt4ProjectManager.S60CreatorPackageStep.SmartInstaller" type="bool">false</value>
       <value key="Qt4ProjectManager.S60CreatorPackageStep.SuppressPatchWarningDialog" type="bool">false</value>
      </valuemap>

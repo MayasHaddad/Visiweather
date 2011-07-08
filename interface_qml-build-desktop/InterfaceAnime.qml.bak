@@ -42,7 +42,7 @@ Item {
             rotation: -3 * parent.rotation
         }
         Image {
-            source: "ressources/moon.png"; y: parent.height - 74; anchors.horizontalCenter: parent.horizontalCenter
+            source: "ressource/moon.png"; y: parent.height - 74; anchors.horizontalCenter: parent.horizontalCenter
             rotation: -parent.rotation
         }
         Particles {
@@ -271,10 +271,10 @@ Item{
 			onItFogz : fogLoader.sourceComponent=fogRect
 		}
 	 }
-		 // Text {id:dv; text :"Direct. vent : "+interfce.getWindDirection(); x:20; y:20}
-	     // Text {id:vv; text :"Vites. vent : "+(interfce.getWindSpeed()*3.6).toFixed(2)+" Km/h"; x:20; y:30}
-		 // Text {id:sy; text :"Temps : "+interfce.getSymbol(); x:20; y:40}
-		 // Text {id:tem; text :"Temper. : "+interfce.getTemperature()+" C"; x:20; y:50}
+		 Text {id:dv; text :"Direct. vent : "+interfce.getWindDirection(); x:20; y:20}
+	     Text {id:vv; text :"Vites. vent : "+(interfce.getWindSpeed()*3.6).toFixed(2)+" Km/h"; x:20; y:30}
+		 Text {id:sy; text :"Temps : "+interfce.getSymbol(); x:20; y:40}
+		 Text {id:tem; text :"Temper. : "+interfce.getTemperature()+" C"; x:20; y:50}
 		 
 	  // Timer {
          // interval: 5000; running: true; repeat: true

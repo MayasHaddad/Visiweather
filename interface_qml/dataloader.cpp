@@ -48,16 +48,22 @@ void dataloader::fetchForecast(QString place,qml_interface* objet, int connexion
     Receiver receiver(query.namePool());
     if (query.isValid()) {
             if (query.evaluateTo(&receiver))
+              {
             objet->forecasts=receiver.forecasts;
+            objet->nextUpdate=QDateTime::fromString(receiver.nextUpdate,"yyyy-MM-ddThh:mm:ss");
         }
+              }
 }
 
 void dataloader::replyFinished(QNetworkReply* reponse)
 {
+    if(reponse->error()==QNetworkReply::NoError)
+    {
     QByteArray xml=reponse->readAll();
     QFile myfile("forecast.xml");
     myfile.open(QIODevice::WriteOnly);
     myfile.write(xml);
     myfile.close();
+    }
 }
 

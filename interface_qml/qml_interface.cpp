@@ -16,25 +16,25 @@ qml_interface::qml_interface(QString place, QWidget *parent)
     {
        this->mode=0;
        forecastAleatoire();
-        }
+    }
     else
     {
-         QNetworkAccessManager *acces = new QNetworkAccessManager(this);
+        QNetworkAccessManager *acces = new QNetworkAccessManager(this);
         acces->setNetworkAccessible(QNetworkAccessManager::Accessible);
         if (acces->networkAccessible()== QNetworkAccessManager::NotAccessible){
-        }
-        QDialog *nn=new QDialog();
-                nn->show();
+    }
     dataloader *loader = new dataloader();
     loader->fetchForecast(localisation,this);
     }
+    QTimer* timer = new QTimer(this);
+    timer->setInterval(5000);
+    timer->start();
     noDataAvaible = new QMessageBox();
     view= new QDeclarativeView();
     view->rootContext()->setContextProperty("interfce",this);
-    view->setSource(QUrl("C://InterfaceAnime.qml"));
-    view->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
+    view->setSource(QUrl::fromLocalFile("rcs/InterfaceAnime.qml"));
     this->setSymbol();
-    QObject::connect(view->rootObject(), SIGNAL(update()),
+    QObject::connect(timer, SIGNAL(timeout()),
                           this, SLOT(updateSlot()));
    }
 
@@ -86,13 +86,13 @@ void qml_interface::setSymbol()
     else if(Symbol == "Partly cloudy") emit pCloudy();
     else if(Symbol == "Cloudy") emit cloudy();
     else if(Symbol == "Rain showers") {emit cloudy(); emit rain();}
-    else if(Symbol == "Rain showers with thunder") { emit cloudy(); emit rain(); emit thunder();}
+    else if(Symbol == "Rain showers with thunder") { emit cloudy(); emit rain(); thunders();}
     else if((Symbol == "Sleet showers") || (Symbol == "Sleet")) {emit cloudy(); emit snow(); emit rain();}
     else if(Symbol == "Snow showers") {emit cloudy(); emit snow();}
     else if((Symbol == "Rain") || (Symbol == "Heavy rain")){emit cloudy(); emit rain();}
-    else if(Symbol == "Rain and thunder"){emit cloudy(); emit rain(); emit thunder();}
+    else if(Symbol == "Rain and thunder"){emit cloudy(); emit rain(); thunders();}
     else if(Symbol == "Snow"){emit cloudy(); emit snow();}
-    else if(Symbol == "Snow and thunder")   {emit cloudy(); emit snow(); emit thunder();}
+    else if(Symbol == "Snow and thunder")   {emit cloudy(); emit snow(); thunders();}
 }
 
 QString qml_interface::getSymbol()
@@ -461,11 +461,11 @@ QString qml_interface::getNextUpdate()
 
 void qml_interface::updateSlot()
 {
-
     if(nextUpdate < QDateTime::currentDateTime())
     {
         dataloader *loader = new dataloader();
         loader->fetchForecast(localisation,this);
+        view->setSource(QUrl::fromLocalFile("rcs/InterfaceAnime.qml"));
         this->setSymbol();
     }
 }
@@ -490,6 +490,20 @@ void qml_interface::forecastAleatoire()
      forecast.symbol["name"]="Fair";
      this->forecasts.append(forecast);
     }
+}
+
+void qml_interface::thunders()
+{
+    QTimer* timer = new QTimer(this);
+    timer->setInterval(300);
+    timer->start();
+    QObject::connect(timer, SIGNAL(timeout()),
+                     this, SLOT(thunderEmetor()));
+}
+
+void qml_interface::thunderEmetor()
+{
+    emit thunder();
 }
 
 qml_interface::~qml_interface()

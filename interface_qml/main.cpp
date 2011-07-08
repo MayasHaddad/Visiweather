@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
         char cont[128];
         file.readLine(cont,sizeof(cont));
         place= QString(cont);
-    }
+         }
         else place="none"; // Lancement de l'application sans localisation
-    }
+     }
     else // argument "place" existant: sauvegarder dans le fichier last_place.txt
     {
         QFile file("last_place.txt");

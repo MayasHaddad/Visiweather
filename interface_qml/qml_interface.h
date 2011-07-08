@@ -15,7 +15,6 @@ class qml_interface : public QMainWindow
 
 public:
     qml_interface(QString place, QWidget *parent = 0);
-   // void fetchForecast(QString place = 0, int connexion = NewConnection);
     Forecast getCurrentForecast(QDateTime time=QDateTime::currentDateTime().addDays(1)); // Retourne la structure forecast correspondant a l'instant present
     void affiche();
     void forecastAleatoire();
@@ -36,14 +35,16 @@ public:
     Q_INVOKABLE int getPositionCiel();
     Q_INVOKABLE void setSymbol();
     Q_INVOKABLE QString getRandomInteger();
+    Q_INVOKABLE void thunderEmetor();
     QList<Forecast> forecasts;
+    QDateTime nextUpdate;
+    void thunders();
     ~qml_interface();
 private:
     QDeclarativeView *view;
     float dureJour;
     QDateTime leveSoleil;
     QDateTime coucheSoleil;
-    QDateTime nextUpdate;
     QString localisation;
     int mode;
     QMessageBox *noDataAvaible;
