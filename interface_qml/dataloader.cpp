@@ -4,6 +4,10 @@
 #include <QtGui>
 #define MaRequete "declare variable $url external;\n" \
     "\n"\
+    "doc($url)//name,\n" \
+    "\n"\
+    "doc($url)//country,\n" \
+    "\n"\
     "doc($url)//nextupdate,\n" \
     "\n" \
     "doc($url)//sun,\n"\
@@ -51,8 +55,10 @@ void dataloader::fetchForecast(QString place,qml_interface* objet, int connexion
               {
             objet->forecasts=receiver.forecasts;
             objet->nextUpdate=QDateTime::fromString(receiver.nextUpdate,"yyyy-MM-ddThh:mm:ss");
+            objet->localisation=receiver.localisation;
+            objet->country=receiver.country;
         }
-              }
+     }
 }
 
 void dataloader::replyFinished(QNetworkReply* reponse)

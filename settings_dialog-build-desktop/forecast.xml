@@ -1,401 +1,401 @@
 <?xml version="1.0" encoding="utf-8"?>
 <weatherdata>
   <location>
-    <name>Ushuaia</name>
-    <type>Regional capital</type>
-    <country>Argentina</country>
-    <timezone id="America/Argentina/Ushuaia" utcoffsetMinutes="-180" />
-    <location altitude="350" latitude="-54.8" longitude="-68.3" geobase="geonames" geobaseid="3833367" />
+    <name>Algiers</name>
+    <type>Capital</type>
+    <country>Algeria</country>
+    <timezone id="Africa/Algiers" utcoffsetMinutes="60" />
+    <location altitude="224" latitude="36.7525" longitude="3.04197" geobase="geonames" geobaseid="2507480" />
   </location>
   <credit>
     <!--In order to use the free weather data from yr no, you HAVE to display 
 the following text clearly visible on your web page. The text should be a 
 link to the specified URL.-->
     <!--Please read more about our conditions and guidelines at http://www.yr.no/verdata/ -->
-    <link text="Weather forecast from yr.no, delivered by the Norwegian Meteorological Institute and the NRK" url="http://www.yr.no/place/Argentina/Tierra_del_Fuego/Ushuaia/" />
+    <link text="Weather forecast from yr.no, delivered by the Norwegian Meteorological Institute and the NRK" url="http://www.yr.no/place/Algeria/Alger/Algiers/" />
   </credit>
   <links>
-    <link id="xmlSource" url="http://www.yr.no/place/Argentina/Tierra_del_Fuego/Ushuaia/forecast.xml" />
-    <link id="overview" url="http://www.yr.no/place/Argentina/Tierra_del_Fuego/Ushuaia/" />
-    <link id="hourByHour" url="http://www.yr.no/place/Argentina/Tierra_del_Fuego/Ushuaia/hour_by_hour.html" />
-    <link id="longTermForecast" url="http://www.yr.no/place/Argentina/Tierra_del_Fuego/Ushuaia/long.html" />
+    <link id="xmlSource" url="http://www.yr.no/place/Algeria/Alger/Algiers/forecast.xml" />
+    <link id="overview" url="http://www.yr.no/place/Algeria/Alger/Algiers/" />
+    <link id="hourByHour" url="http://www.yr.no/place/Algeria/Alger/Algiers/hour_by_hour.html" />
+    <link id="longTermForecast" url="http://www.yr.no/place/Algeria/Alger/Algiers/long.html" />
   </links>
   <meta>
-    <lastupdate>2011-07-08T04:03:00</lastupdate>
-    <nextupdate>2011-07-08T17:00:00</nextupdate>
+    <lastupdate>2011-07-11T08:02:59</lastupdate>
+    <nextupdate>2011-07-11T21:00:00</nextupdate>
   </meta>
-  <sun rise="2011-07-08T09:54:14" set="2011-07-08T17:22:37" />
+  <sun rise="2011-07-11T05:37:45" set="2011-07-11T20:08:35" />
   <forecast>
     <tabular>
-      <time from="2011-07-08T18:00:00" to="2011-07-09T00:00:00" period="3">
-        <!-- Valid from 2011-07-08T18:00:00 to 2011-07-09T00:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="2.9" />
-        <!-- Valid at 2011-07-08T18:00:00 -->
-        <windDirection deg="20.2" code="NNE" name="North-northeast" />
-        <windSpeed mps="3.1" name="Light breeze" />
-        <temperature unit="celsius" value="-3" />
-        <pressure unit="hPa" value="989.0" />
+      <time from="2011-07-11T19:00:00" to="2011-07-12T01:00:00" period="3">
+        <!-- Valid from 2011-07-11T19:00:00 to 2011-07-12T01:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="mf/03n.44" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-11T19:00:00 -->
+        <windDirection deg="7.1" code="N" name="North" />
+        <windSpeed mps="3.2" name="Light breeze" />
+        <temperature unit="celsius" value="27" />
+        <pressure unit="hPa" value="1012.4" />
       </time>
-      <time from="2011-07-09T00:00:00" to="2011-07-09T06:00:00" period="0">
-        <!-- Valid from 2011-07-09T00:00:00 to 2011-07-09T06:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="11.0" />
-        <!-- Valid at 2011-07-09T00:00:00 -->
-        <windDirection deg="68.2" code="ENE" name="East-northeast" />
+      <time from="2011-07-12T01:00:00" to="2011-07-12T07:00:00" period="0">
+        <!-- Valid from 2011-07-12T01:00:00 to 2011-07-12T07:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="mf/03n.45" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-12T01:00:00 -->
+        <windDirection deg="73.3" code="ENE" name="East-northeast" />
         <windSpeed mps="2.1" name="Light breeze" />
-        <temperature unit="celsius" value="-1" />
-        <pressure unit="hPa" value="984.0" />
+        <temperature unit="celsius" value="22" />
+        <pressure unit="hPa" value="1011.9" />
       </time>
-      <time from="2011-07-09T06:00:00" to="2011-07-09T12:00:00" period="1">
-        <!-- Valid from 2011-07-09T06:00:00 to 2011-07-09T12:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="11.0" />
-        <!-- Valid at 2011-07-09T06:00:00 -->
-        <windDirection deg="62.2" code="ENE" name="East-northeast" />
-        <windSpeed mps="1.3" name="Light air" />
-        <temperature unit="celsius" value="-1" />
-        <pressure unit="hPa" value="982.2" />
+      <time from="2011-07-12T07:00:00" to="2011-07-12T13:00:00" period="1">
+        <!-- Valid from 2011-07-12T07:00:00 to 2011-07-12T13:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-12T07:00:00 -->
+        <windDirection deg="169.8" code="S" name="South" />
+        <windSpeed mps="2.4" name="Light breeze" />
+        <temperature unit="celsius" value="27" />
+        <pressure unit="hPa" value="1009.7" />
       </time>
-      <time from="2011-07-09T12:00:00" to="2011-07-09T18:00:00" period="2">
-        <!-- Valid from 2011-07-09T12:00:00 to 2011-07-09T18:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="4.2" />
-        <!-- Valid at 2011-07-09T12:00:00 -->
-        <windDirection deg="114.6" code="ESE" name="East-southeast" />
-        <windSpeed mps="0.8" name="Light air" />
-        <temperature unit="celsius" value="-1" />
-        <pressure unit="hPa" value="985.1" />
-      </time>
-      <time from="2011-07-09T18:00:00" to="2011-07-10T00:00:00" period="3">
-        <!-- Valid from 2011-07-09T18:00:00 to 2011-07-10T00:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="0.4" />
-        <!-- Valid at 2011-07-09T18:00:00 -->
-        <windDirection deg="67.5" code="ENE" name="East-northeast" />
-        <windSpeed mps="0.9" name="Light air" />
-        <temperature unit="celsius" value="-1" />
-        <pressure unit="hPa" value="988.4" />
-      </time>
-      <time from="2011-07-10T00:00:00" to="2011-07-10T06:00:00" period="0">
-        <!-- Valid from 2011-07-10T00:00:00 to 2011-07-10T06:00:00 -->
+      <time from="2011-07-12T13:00:00" to="2011-07-12T19:00:00" period="2">
+        <!-- Valid from 2011-07-12T13:00:00 to 2011-07-12T19:00:00 -->
         <symbol number="4" name="Cloudy" var="04" />
         <precipitation value="0.0" />
-        <!-- Valid at 2011-07-10T00:00:00 -->
-        <windDirection deg="63.2" code="ENE" name="East-northeast" />
-        <windSpeed mps="1.8" name="Light breeze" />
-        <temperature unit="celsius" value="-3" />
-        <pressure unit="hPa" value="992.8" />
+        <!-- Valid at 2011-07-12T13:00:00 -->
+        <windDirection deg="325.7" code="NW" name="Northwest" />
+        <windSpeed mps="3.2" name="Light breeze" />
+        <temperature unit="celsius" value="35" />
+        <pressure unit="hPa" value="1010.1" />
       </time>
-      <time from="2011-07-10T06:00:00" to="2011-07-10T12:00:00" period="1">
-        <!-- Valid from 2011-07-10T06:00:00 to 2011-07-10T12:00:00 -->
+      <time from="2011-07-12T19:00:00" to="2011-07-13T01:00:00" period="3">
+        <!-- Valid from 2011-07-12T19:00:00 to 2011-07-13T01:00:00 -->
         <symbol number="4" name="Cloudy" var="04" />
         <precipitation value="0.0" />
-        <!-- Valid at 2011-07-10T06:00:00 -->
-        <windDirection deg="22.7" code="NNE" name="North-northeast" />
-        <windSpeed mps="1.6" name="Light breeze" />
-        <temperature unit="celsius" value="-5" />
-        <pressure unit="hPa" value="997.9" />
-      </time>
-      <time from="2011-07-10T12:00:00" to="2011-07-10T18:00:00" period="2">
-        <!-- Valid from 2011-07-10T12:00:00 to 2011-07-10T18:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-10T12:00:00 -->
-        <windDirection deg="23.5" code="NNE" name="North-northeast" />
-        <windSpeed mps="2.6" name="Light breeze" />
-        <temperature unit="celsius" value="-5" />
-        <pressure unit="hPa" value="1001.8" />
-      </time>
-      <time from="2011-07-10T15:00:00" to="2011-07-10T21:00:00" period="3">
-        <!-- Valid from 2011-07-10T15:00:00 to 2011-07-10T21:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.8" />
-        <!-- Valid at 2011-07-10T15:00:00 -->
-        <windDirection deg="25.4" code="NNE" name="North-northeast" />
+        <!-- Valid at 2011-07-12T19:00:00 -->
+        <windDirection deg="112.6" code="ESE" name="East-southeast" />
         <windSpeed mps="2.3" name="Light breeze" />
-        <temperature unit="celsius" value="-3" />
-        <pressure unit="hPa" value="1001.5" />
+        <temperature unit="celsius" value="33" />
+        <pressure unit="hPa" value="1008.1" />
       </time>
-      <time from="2011-07-10T21:00:00" to="2011-07-11T03:00:00" period="0">
-        <!-- Valid from 2011-07-10T21:00:00 to 2011-07-11T03:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="1.2" />
-        <!-- Valid at 2011-07-10T21:00:00 -->
-        <windDirection deg="10.7" code="N" name="North" />
-        <windSpeed mps="4.4" name="Gentle breeze" />
-        <temperature unit="celsius" value="-1" />
-        <pressure unit="hPa" value="1000.6" />
-      </time>
-      <time from="2011-07-11T03:00:00" to="2011-07-11T09:00:00" period="1">
-        <!-- Valid from 2011-07-11T03:00:00 to 2011-07-11T09:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="0.4" />
-        <!-- Valid at 2011-07-11T03:00:00 -->
-        <windDirection deg="7.8" code="N" name="North" />
-        <windSpeed mps="6.1" name="Moderate breeze" />
-        <temperature unit="celsius" value="0" />
-        <pressure unit="hPa" value="998.6" />
-      </time>
-      <time from="2011-07-11T09:00:00" to="2011-07-11T15:00:00" period="2">
-        <!-- Valid from 2011-07-11T09:00:00 to 2011-07-11T15:00:00 -->
-        <symbol number="3" name="Partly cloudy" var="03d" />
+      <time from="2011-07-13T01:00:00" to="2011-07-13T07:00:00" period="0">
+        <!-- Valid from 2011-07-13T01:00:00 to 2011-07-13T07:00:00 -->
+        <symbol number="2" name="Fair" var="mf/02n.49" />
         <precipitation value="0.0" />
-        <!-- Valid at 2011-07-11T09:00:00 -->
-        <windDirection deg="357.7" code="N" name="North" />
+        <!-- Valid at 2011-07-13T01:00:00 -->
+        <windDirection deg="285.2" code="WNW" name="West-northwest" />
+        <windSpeed mps="5.6" name="Moderate breeze" />
+        <temperature unit="celsius" value="24" />
+        <pressure unit="hPa" value="1009.3" />
+      </time>
+      <time from="2011-07-13T07:00:00" to="2011-07-13T13:00:00" period="1">
+        <!-- Valid from 2011-07-13T07:00:00 to 2011-07-13T13:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-13T07:00:00 -->
+        <windDirection deg="240.7" code="WSW" name="West-southwest" />
+        <windSpeed mps="2.8" name="Light breeze" />
+        <temperature unit="celsius" value="26" />
+        <pressure unit="hPa" value="1010.2" />
+      </time>
+      <time from="2011-07-13T13:00:00" to="2011-07-13T19:00:00" period="2">
+        <!-- Valid from 2011-07-13T13:00:00 to 2011-07-13T19:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-13T13:00:00 -->
+        <windDirection deg="294.8" code="WNW" name="West-northwest" />
+        <windSpeed mps="7.7" name="Moderate breeze" />
+        <temperature unit="celsius" value="28" />
+        <pressure unit="hPa" value="1012.7" />
+      </time>
+      <time from="2011-07-13T19:00:00" to="2011-07-14T01:00:00" period="3">
+        <!-- Valid from 2011-07-13T19:00:00 to 2011-07-14T01:00:00 -->
+        <symbol number="2" name="Fair" var="mf/02n.51" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-13T19:00:00 -->
+        <windDirection deg="301.3" code="WNW" name="West-northwest" />
+        <windSpeed mps="2.8" name="Light breeze" />
+        <temperature unit="celsius" value="25" />
+        <pressure unit="hPa" value="1013.1" />
+      </time>
+      <time from="2011-07-14T01:00:00" to="2011-07-14T07:00:00" period="0">
+        <!-- Valid from 2011-07-14T01:00:00 to 2011-07-14T07:00:00 -->
+        <symbol number="2" name="Fair" var="mf/02n.52" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-14T01:00:00 -->
+        <windDirection deg="38.5" code="NE" name="Northeast" />
+        <windSpeed mps="1.2" name="Light air" />
+        <temperature unit="celsius" value="22" />
+        <pressure unit="hPa" value="1014.8" />
+      </time>
+      <time from="2011-07-14T07:00:00" to="2011-07-14T13:00:00" period="1">
+        <!-- Valid from 2011-07-14T07:00:00 to 2011-07-14T13:00:00 -->
+        <symbol number="9" name="Rain" var="09" />
+        <precipitation value="0.7" />
+        <!-- Valid at 2011-07-14T07:00:00 -->
+        <windDirection deg="61.0" code="ENE" name="East-northeast" />
         <windSpeed mps="2.2" name="Light breeze" />
-        <temperature unit="celsius" value="0" />
-        <pressure unit="hPa" value="998.7" />
+        <temperature unit="celsius" value="22" />
+        <pressure unit="hPa" value="1015.2" />
       </time>
-      <time from="2011-07-11T15:00:00" to="2011-07-11T21:00:00" period="3">
-        <!-- Valid from 2011-07-11T15:00:00 to 2011-07-11T21:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-11T15:00:00 -->
-        <windDirection deg="341.0" code="NNW" name="North-northwest" />
-        <windSpeed mps="3.2" name="Light breeze" />
-        <temperature unit="celsius" value="0" />
-        <pressure unit="hPa" value="1000.6" />
-      </time>
-      <time from="2011-07-11T21:00:00" to="2011-07-12T03:00:00" period="0">
-        <!-- Valid from 2011-07-11T21:00:00 to 2011-07-12T03:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-11T21:00:00 -->
-        <windDirection deg="7.0" code="N" name="North" />
-        <windSpeed mps="3.0" name="Light breeze" />
-        <temperature unit="celsius" value="-4" />
-        <pressure unit="hPa" value="1001.8" />
-      </time>
-      <time from="2011-07-12T03:00:00" to="2011-07-12T09:00:00" period="1">
-        <!-- Valid from 2011-07-12T03:00:00 to 2011-07-12T09:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-12T03:00:00 -->
-        <windDirection deg="6.3" code="N" name="North" />
-        <windSpeed mps="2.9" name="Light breeze" />
-        <temperature unit="celsius" value="-4" />
-        <pressure unit="hPa" value="1001.8" />
-      </time>
-      <time from="2011-07-12T09:00:00" to="2011-07-12T15:00:00" period="2">
-        <!-- Valid from 2011-07-12T09:00:00 to 2011-07-12T15:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-12T09:00:00 -->
-        <windDirection deg="6.7" code="N" name="North" />
-        <windSpeed mps="2.6" name="Light breeze" />
-        <temperature unit="celsius" value="-3" />
-        <pressure unit="hPa" value="1001.8" />
-      </time>
-      <time from="2011-07-12T15:00:00" to="2011-07-12T21:00:00" period="3">
-        <!-- Valid from 2011-07-12T15:00:00 to 2011-07-12T21:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-12T15:00:00 -->
-        <windDirection deg="4.0" code="N" name="North" />
-        <windSpeed mps="1.9" name="Light breeze" />
-        <temperature unit="celsius" value="0" />
-        <pressure unit="hPa" value="1001.5" />
-      </time>
-      <time from="2011-07-12T21:00:00" to="2011-07-13T03:00:00" period="0">
-        <!-- Valid from 2011-07-12T21:00:00 to 2011-07-13T03:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-12T21:00:00 -->
-        <windDirection deg="14.9" code="NNE" name="North-northeast" />
-        <windSpeed mps="2.5" name="Light breeze" />
-        <temperature unit="celsius" value="-2" />
-        <pressure unit="hPa" value="1001.1" />
-      </time>
-      <time from="2011-07-13T03:00:00" to="2011-07-13T09:00:00" period="1">
-        <!-- Valid from 2011-07-13T03:00:00 to 2011-07-13T09:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-13T03:00:00 -->
-        <windDirection deg="7.4" code="N" name="North" />
-        <windSpeed mps="2.8" name="Light breeze" />
-        <temperature unit="celsius" value="-3" />
-        <pressure unit="hPa" value="1001.0" />
-      </time>
-      <time from="2011-07-13T09:00:00" to="2011-07-13T15:00:00" period="2">
-        <!-- Valid from 2011-07-13T09:00:00 to 2011-07-13T15:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-13T09:00:00 -->
-        <windDirection deg="8.0" code="N" name="North" />
-        <windSpeed mps="1.3" name="Light air" />
-        <temperature unit="celsius" value="-2" />
-        <pressure unit="hPa" value="1001.1" />
-      </time>
-      <time from="2011-07-13T15:00:00" to="2011-07-13T21:00:00" period="3">
-        <!-- Valid from 2011-07-13T15:00:00 to 2011-07-13T21:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-13T15:00:00 -->
-        <windDirection deg="147.7" code="SSE" name="South-southeast" />
-        <windSpeed mps="1.3" name="Light air" />
-        <temperature unit="celsius" value="-1" />
-        <pressure unit="hPa" value="1000.3" />
-      </time>
-      <time from="2011-07-13T21:00:00" to="2011-07-14T03:00:00" period="0">
-        <!-- Valid from 2011-07-13T21:00:00 to 2011-07-14T03:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.5" />
-        <!-- Valid at 2011-07-13T21:00:00 -->
-        <windDirection deg="229.2" code="SW" name="Southwest" />
-        <windSpeed mps="0.4" name="Light air" />
-        <temperature unit="celsius" value="-1" />
-        <pressure unit="hPa" value="999.4" />
-      </time>
-      <time from="2011-07-14T03:00:00" to="2011-07-14T09:00:00" period="1">
-        <!-- Valid from 2011-07-14T03:00:00 to 2011-07-14T09:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="0.5" />
-        <!-- Valid at 2011-07-14T03:00:00 -->
-        <windDirection deg="229.3" code="SW" name="Southwest" />
-        <windSpeed mps="1.8" name="Light breeze" />
-        <temperature unit="celsius" value="-2" />
-        <pressure unit="hPa" value="995.2" />
-      </time>
-      <time from="2011-07-14T09:00:00" to="2011-07-14T15:00:00" period="2">
-        <!-- Valid from 2011-07-14T09:00:00 to 2011-07-14T15:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="0.3" />
-        <!-- Valid at 2011-07-14T09:00:00 -->
-        <windDirection deg="213.6" code="SSW" name="South-southwest" />
-        <windSpeed mps="2.8" name="Light breeze" />
-        <temperature unit="celsius" value="-3" />
-        <pressure unit="hPa" value="993.7" />
-      </time>
-      <time from="2011-07-14T15:00:00" to="2011-07-14T21:00:00" period="3">
-        <!-- Valid from 2011-07-14T15:00:00 to 2011-07-14T21:00:00 -->
-        <symbol number="8" name="Snow showers" var="mf/08n.45" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-14T15:00:00 -->
-        <windDirection deg="234.3" code="SW" name="Southwest" />
-        <windSpeed mps="2.8" name="Light breeze" />
-        <temperature unit="celsius" value="-2" />
-        <pressure unit="hPa" value="993.4" />
-      </time>
-      <time from="2011-07-14T21:00:00" to="2011-07-15T03:00:00" period="0">
-        <!-- Valid from 2011-07-14T21:00:00 to 2011-07-15T03:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.2" />
-        <!-- Valid at 2011-07-14T21:00:00 -->
-        <windDirection deg="246.6" code="WSW" name="West-southwest" />
-        <windSpeed mps="2.9" name="Light breeze" />
-        <temperature unit="celsius" value="-3" />
-        <pressure unit="hPa" value="995.9" />
-      </time>
-      <time from="2011-07-15T03:00:00" to="2011-07-15T09:00:00" period="1">
-        <!-- Valid from 2011-07-15T03:00:00 to 2011-07-15T09:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="0.4" />
-        <!-- Valid at 2011-07-15T03:00:00 -->
-        <windDirection deg="286.0" code="WNW" name="West-northwest" />
-        <windSpeed mps="3.6" name="Gentle breeze" />
-        <temperature unit="celsius" value="-3" />
-        <pressure unit="hPa" value="994.1" />
-      </time>
-      <time from="2011-07-15T09:00:00" to="2011-07-15T15:00:00" period="2">
-        <!-- Valid from 2011-07-15T09:00:00 to 2011-07-15T15:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="0.4" />
-        <!-- Valid at 2011-07-15T09:00:00 -->
-        <windDirection deg="241.6" code="WSW" name="West-southwest" />
-        <windSpeed mps="3.2" name="Light breeze" />
-        <temperature unit="celsius" value="0" />
-        <pressure unit="hPa" value="993.7" />
-      </time>
-      <time from="2011-07-15T15:00:00" to="2011-07-15T21:00:00" period="3">
-        <!-- Valid from 2011-07-15T15:00:00 to 2011-07-15T21:00:00 -->
-        <symbol number="8" name="Snow showers" var="mf/08n.42" />
-        <precipitation value="0.2" />
-        <!-- Valid at 2011-07-15T15:00:00 -->
-        <windDirection deg="250.4" code="WSW" name="West-southwest" />
-        <windSpeed mps="2.6" name="Light breeze" />
-        <temperature unit="celsius" value="0" />
-        <pressure unit="hPa" value="993.8" />
-      </time>
-      <time from="2011-07-15T21:00:00" to="2011-07-16T03:00:00" period="0">
-        <!-- Valid from 2011-07-15T21:00:00 to 2011-07-16T03:00:00 -->
-        <symbol number="3" name="Partly cloudy" var="mf/03n.41" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-15T21:00:00 -->
-        <windDirection deg="239.4" code="WSW" name="West-southwest" />
-        <windSpeed mps="3.7" name="Gentle breeze" />
-        <temperature unit="celsius" value="-3" />
-        <pressure unit="hPa" value="995.8" />
-      </time>
-      <time from="2011-07-16T03:00:00" to="2011-07-16T09:00:00" period="1">
-        <!-- Valid from 2011-07-16T03:00:00 to 2011-07-16T09:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-16T03:00:00 -->
-        <windDirection deg="240.2" code="WSW" name="West-southwest" />
-        <windSpeed mps="4.2" name="Gentle breeze" />
-        <temperature unit="celsius" value="-4" />
-        <pressure unit="hPa" value="997.1" />
-      </time>
-      <time from="2011-07-16T09:00:00" to="2011-07-16T15:00:00" period="2">
-        <!-- Valid from 2011-07-16T09:00:00 to 2011-07-16T15:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-16T09:00:00 -->
-        <windDirection deg="260.5" code="W" name="West" />
-        <windSpeed mps="3.5" name="Gentle breeze" />
-        <temperature unit="celsius" value="-5" />
-        <pressure unit="hPa" value="998.5" />
-      </time>
-      <time from="2011-07-16T15:00:00" to="2011-07-16T21:00:00" period="3">
-        <!-- Valid from 2011-07-16T15:00:00 to 2011-07-16T21:00:00 -->
-        <symbol number="3" name="Partly cloudy" var="mf/03n.39" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-16T15:00:00 -->
-        <windDirection deg="248.4" code="WSW" name="West-southwest" />
-        <windSpeed mps="3.0" name="Light breeze" />
-        <temperature unit="celsius" value="-3" />
-        <pressure unit="hPa" value="1000.2" />
-      </time>
-      <time from="2011-07-16T21:00:00" to="2011-07-17T03:00:00" period="0">
-        <!-- Valid from 2011-07-16T21:00:00 to 2011-07-17T03:00:00 -->
-        <symbol number="4" name="Cloudy" var="04" />
-        <precipitation value="0.0" />
-        <!-- Valid at 2011-07-16T21:00:00 -->
-        <windDirection deg="288.1" code="WNW" name="West-northwest" />
-        <windSpeed mps="3.4" name="Gentle breeze" />
-        <temperature unit="celsius" value="-5" />
-        <pressure unit="hPa" value="1001.3" />
-      </time>
-      <time from="2011-07-17T03:00:00" to="2011-07-17T09:00:00" period="1">
-        <!-- Valid from 2011-07-17T03:00:00 to 2011-07-17T09:00:00 -->
+      <time from="2011-07-14T13:00:00" to="2011-07-14T19:00:00" period="2">
+        <!-- Valid from 2011-07-14T13:00:00 to 2011-07-14T19:00:00 -->
         <symbol number="3" name="Partly cloudy" var="03d" />
-        <precipitation value="0.3" />
-        <!-- Valid at 2011-07-17T03:00:00 -->
-        <windDirection deg="336.2" code="NNW" name="North-northwest" />
-        <windSpeed mps="2.6" name="Light breeze" />
-        <temperature unit="celsius" value="-7" />
-        <pressure unit="hPa" value="999.1" />
-      </time>
-      <time from="2011-07-17T09:00:00" to="2011-07-17T15:00:00" period="2">
-        <!-- Valid from 2011-07-17T09:00:00 to 2011-07-17T15:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
-        <precipitation value="0.4" />
-        <!-- Valid at 2011-07-17T09:00:00 -->
-        <windDirection deg="330.5" code="NNW" name="North-northwest" />
-        <windSpeed mps="3.3" name="Light breeze" />
-        <temperature unit="celsius" value="-4" />
-        <pressure unit="hPa" value="995.0" />
-      </time>
-      <time from="2011-07-17T15:00:00" to="2011-07-17T21:00:00" period="3">
-        <!-- Valid from 2011-07-17T15:00:00 to 2011-07-17T21:00:00 -->
-        <symbol number="13" name="Snow" var="13" />
         <precipitation value="0.0" />
-        <!-- Valid at 2011-07-17T15:00:00 -->
-        <windDirection deg="251.2" code="WSW" name="West-southwest" />
-        <windSpeed mps="3.3" name="Light breeze" />
-        <temperature unit="celsius" value="-1" />
-        <pressure unit="hPa" value="994.7" />
+        <!-- Valid at 2011-07-14T13:00:00 -->
+        <windDirection deg="56.3" code="ENE" name="East-northeast" />
+        <windSpeed mps="8.1" name="Fresh breeze" />
+        <temperature unit="celsius" value="27" />
+        <pressure unit="hPa" value="1015.8" />
+      </time>
+      <time from="2011-07-14T19:00:00" to="2011-07-15T01:00:00" period="3">
+        <!-- Valid from 2011-07-14T19:00:00 to 2011-07-15T01:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.55" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-14T19:00:00 -->
+        <windDirection deg="66.2" code="ENE" name="East-northeast" />
+        <windSpeed mps="8.0" name="Fresh breeze" />
+        <temperature unit="celsius" value="24" />
+        <pressure unit="hPa" value="1014.7" />
+      </time>
+      <time from="2011-07-15T01:00:00" to="2011-07-15T07:00:00" period="0">
+        <!-- Valid from 2011-07-15T01:00:00 to 2011-07-15T07:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.55" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-15T01:00:00 -->
+        <windDirection deg="67.8" code="ENE" name="East-northeast" />
+        <windSpeed mps="6.3" name="Moderate breeze" />
+        <temperature unit="celsius" value="22" />
+        <pressure unit="hPa" value="1015.4" />
+      </time>
+      <time from="2011-07-15T07:00:00" to="2011-07-15T13:00:00" period="1">
+        <!-- Valid from 2011-07-15T07:00:00 to 2011-07-15T13:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-15T07:00:00 -->
+        <windDirection deg="69.9" code="ENE" name="East-northeast" />
+        <windSpeed mps="6.1" name="Moderate breeze" />
+        <temperature unit="celsius" value="22" />
+        <pressure unit="hPa" value="1015.5" />
+      </time>
+      <time from="2011-07-15T13:00:00" to="2011-07-15T19:00:00" period="2">
+        <!-- Valid from 2011-07-15T13:00:00 to 2011-07-15T19:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-15T13:00:00 -->
+        <windDirection deg="46.0" code="NE" name="Northeast" />
+        <windSpeed mps="7.4" name="Moderate breeze" />
+        <temperature unit="celsius" value="27" />
+        <pressure unit="hPa" value="1016.4" />
+      </time>
+      <time from="2011-07-15T19:00:00" to="2011-07-16T01:00:00" period="3">
+        <!-- Valid from 2011-07-15T19:00:00 to 2011-07-16T01:00:00 -->
+        <symbol number="2" name="Fair" var="mf/02n.58" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-15T19:00:00 -->
+        <windDirection deg="67.7" code="ENE" name="East-northeast" />
+        <windSpeed mps="5.8" name="Moderate breeze" />
+        <temperature unit="celsius" value="25" />
+        <pressure unit="hPa" value="1015.8" />
+      </time>
+      <time from="2011-07-16T01:00:00" to="2011-07-16T07:00:00" period="0">
+        <!-- Valid from 2011-07-16T01:00:00 to 2011-07-16T07:00:00 -->
+        <symbol number="2" name="Fair" var="mf/02n.59" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-16T01:00:00 -->
+        <windDirection deg="48.7" code="NE" name="Northeast" />
+        <windSpeed mps="4.3" name="Gentle breeze" />
+        <temperature unit="celsius" value="22" />
+        <pressure unit="hPa" value="1015.7" />
+      </time>
+      <time from="2011-07-16T07:00:00" to="2011-07-16T13:00:00" period="1">
+        <!-- Valid from 2011-07-16T07:00:00 to 2011-07-16T13:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-16T07:00:00 -->
+        <windDirection deg="86.3" code="E" name="East" />
+        <windSpeed mps="1.6" name="Light breeze" />
+        <temperature unit="celsius" value="22" />
+        <pressure unit="hPa" value="1016.2" />
+      </time>
+      <time from="2011-07-16T13:00:00" to="2011-07-16T19:00:00" period="2">
+        <!-- Valid from 2011-07-16T13:00:00 to 2011-07-16T19:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-16T13:00:00 -->
+        <windDirection deg="38.2" code="NE" name="Northeast" />
+        <windSpeed mps="4.4" name="Gentle breeze" />
+        <temperature unit="celsius" value="29" />
+        <pressure unit="hPa" value="1015.6" />
+      </time>
+      <time from="2011-07-16T19:00:00" to="2011-07-17T01:00:00" period="3">
+        <!-- Valid from 2011-07-16T19:00:00 to 2011-07-17T01:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.61" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-16T19:00:00 -->
+        <windDirection deg="56.3" code="ENE" name="East-northeast" />
+        <windSpeed mps="3.9" name="Gentle breeze" />
+        <temperature unit="celsius" value="27" />
+        <pressure unit="hPa" value="1012.5" />
+      </time>
+      <time from="2011-07-17T01:00:00" to="2011-07-17T07:00:00" period="0">
+        <!-- Valid from 2011-07-17T01:00:00 to 2011-07-17T07:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.62" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-17T01:00:00 -->
+        <windDirection deg="49.1" code="NE" name="Northeast" />
+        <windSpeed mps="1.1" name="Light air" />
+        <temperature unit="celsius" value="22" />
+        <pressure unit="hPa" value="1011.5" />
+      </time>
+      <time from="2011-07-17T07:00:00" to="2011-07-17T13:00:00" period="1">
+        <!-- Valid from 2011-07-17T07:00:00 to 2011-07-17T13:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-17T07:00:00 -->
+        <windDirection deg="114.0" code="ESE" name="East-southeast" />
+        <windSpeed mps="0.5" name="Light air" />
+        <temperature unit="celsius" value="23" />
+        <pressure unit="hPa" value="1009.9" />
+      </time>
+      <time from="2011-07-17T13:00:00" to="2011-07-17T19:00:00" period="2">
+        <!-- Valid from 2011-07-17T13:00:00 to 2011-07-17T19:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-17T13:00:00 -->
+        <windDirection deg="331.0" code="NNW" name="North-northwest" />
+        <windSpeed mps="3.8" name="Gentle breeze" />
+        <temperature unit="celsius" value="32" />
+        <pressure unit="hPa" value="1008.4" />
+      </time>
+      <time from="2011-07-17T19:00:00" to="2011-07-18T01:00:00" period="3">
+        <!-- Valid from 2011-07-17T19:00:00 to 2011-07-18T01:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.65" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-17T19:00:00 -->
+        <windDirection deg="280.6" code="W" name="West" />
+        <windSpeed mps="2.2" name="Light breeze" />
+        <temperature unit="celsius" value="28" />
+        <pressure unit="hPa" value="1006.6" />
+      </time>
+      <time from="2011-07-18T01:00:00" to="2011-07-18T07:00:00" period="0">
+        <!-- Valid from 2011-07-18T01:00:00 to 2011-07-18T07:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.66" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-18T01:00:00 -->
+        <windDirection deg="343.3" code="NNW" name="North-northwest" />
+        <windSpeed mps="0.7" name="Light air" />
+        <temperature unit="celsius" value="24" />
+        <pressure unit="hPa" value="1005.7" />
+      </time>
+      <time from="2011-07-18T07:00:00" to="2011-07-18T13:00:00" period="1">
+        <!-- Valid from 2011-07-18T07:00:00 to 2011-07-18T13:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-18T07:00:00 -->
+        <windDirection deg="248.8" code="WSW" name="West-southwest" />
+        <windSpeed mps="2.0" name="Light breeze" />
+        <temperature unit="celsius" value="23" />
+        <pressure unit="hPa" value="1005.5" />
+      </time>
+      <time from="2011-07-18T13:00:00" to="2011-07-18T19:00:00" period="2">
+        <!-- Valid from 2011-07-18T13:00:00 to 2011-07-18T19:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-18T13:00:00 -->
+        <windDirection deg="291.0" code="WNW" name="West-northwest" />
+        <windSpeed mps="9.7" name="Fresh breeze" />
+        <temperature unit="celsius" value="28" />
+        <pressure unit="hPa" value="1007.9" />
+      </time>
+      <time from="2011-07-18T19:00:00" to="2011-07-19T01:00:00" period="3">
+        <!-- Valid from 2011-07-18T19:00:00 to 2011-07-19T01:00:00 -->
+        <symbol number="5" name="Rain showers" var="mf/05n.68" />
+        <precipitation value="0.4" />
+        <!-- Valid at 2011-07-18T19:00:00 -->
+        <windDirection deg="297.0" code="WNW" name="West-northwest" />
+        <windSpeed mps="2.5" name="Light breeze" />
+        <temperature unit="celsius" value="25" />
+        <pressure unit="hPa" value="1009.3" />
+      </time>
+      <time from="2011-07-19T01:00:00" to="2011-07-19T07:00:00" period="0">
+        <!-- Valid from 2011-07-19T01:00:00 to 2011-07-19T07:00:00 -->
+        <symbol number="9" name="Rain" var="09" />
+        <precipitation value="2.4" />
+        <!-- Valid at 2011-07-19T01:00:00 -->
+        <windDirection deg="75.9" code="ENE" name="East-northeast" />
+        <windSpeed mps="1.6" name="Light breeze" />
+        <temperature unit="celsius" value="21" />
+        <pressure unit="hPa" value="1010.9" />
+      </time>
+      <time from="2011-07-19T07:00:00" to="2011-07-19T13:00:00" period="1">
+        <!-- Valid from 2011-07-19T07:00:00 to 2011-07-19T13:00:00 -->
+        <symbol number="9" name="Rain" var="09" />
+        <precipitation value="2.2" />
+        <!-- Valid at 2011-07-19T07:00:00 -->
+        <windDirection deg="63.1" code="ENE" name="East-northeast" />
+        <windSpeed mps="4.1" name="Gentle breeze" />
+        <temperature unit="celsius" value="20" />
+        <pressure unit="hPa" value="1012.7" />
+      </time>
+      <time from="2011-07-19T13:00:00" to="2011-07-19T19:00:00" period="2">
+        <!-- Valid from 2011-07-19T13:00:00 to 2011-07-19T19:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.4" />
+        <!-- Valid at 2011-07-19T13:00:00 -->
+        <windDirection deg="46.4" code="NE" name="Northeast" />
+        <windSpeed mps="6.2" name="Moderate breeze" />
+        <temperature unit="celsius" value="25" />
+        <pressure unit="hPa" value="1013.7" />
+      </time>
+      <time from="2011-07-19T19:00:00" to="2011-07-20T01:00:00" period="3">
+        <!-- Valid from 2011-07-19T19:00:00 to 2011-07-20T01:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.71" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-19T19:00:00 -->
+        <windDirection deg="62.0" code="ENE" name="East-northeast" />
+        <windSpeed mps="6.4" name="Moderate breeze" />
+        <temperature unit="celsius" value="23" />
+        <pressure unit="hPa" value="1013.8" />
+      </time>
+      <time from="2011-07-20T01:00:00" to="2011-07-20T07:00:00" period="0">
+        <!-- Valid from 2011-07-20T01:00:00 to 2011-07-20T07:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.72" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-20T01:00:00 -->
+        <windDirection deg="87.2" code="E" name="East" />
+        <windSpeed mps="2.3" name="Light breeze" />
+        <temperature unit="celsius" value="20" />
+        <pressure unit="hPa" value="1015.2" />
+      </time>
+      <time from="2011-07-20T07:00:00" to="2011-07-20T13:00:00" period="1">
+        <!-- Valid from 2011-07-20T07:00:00 to 2011-07-20T13:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-20T07:00:00 -->
+        <windDirection deg="77.0" code="ENE" name="East-northeast" />
+        <windSpeed mps="3.1" name="Light breeze" />
+        <temperature unit="celsius" value="21" />
+        <pressure unit="hPa" value="1016.0" />
+      </time>
+      <time from="2011-07-20T13:00:00" to="2011-07-20T19:00:00" period="2">
+        <!-- Valid from 2011-07-20T13:00:00 to 2011-07-20T19:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-20T13:00:00 -->
+        <windDirection deg="53.9" code="NE" name="Northeast" />
+        <windSpeed mps="6.2" name="Moderate breeze" />
+        <temperature unit="celsius" value="27" />
+        <pressure unit="hPa" value="1016.0" />
+      </time>
+      <time from="2011-07-20T19:00:00" to="2011-07-21T01:00:00" period="3">
+        <!-- Valid from 2011-07-20T19:00:00 to 2011-07-21T01:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.75" />
+        <precipitation value="0.0" />
+        <!-- Valid at 2011-07-20T19:00:00 -->
+        <windDirection deg="64.9" code="ENE" name="East-northeast" />
+        <windSpeed mps="6.3" name="Moderate breeze" />
+        <temperature unit="celsius" value="25" />
+        <pressure unit="hPa" value="1013.9" />
       </time>
     </tabular>
   </forecast>

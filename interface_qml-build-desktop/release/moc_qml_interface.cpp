@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qml_interface.h'
 **
-** Created: Fri 8. Jul 07:38:34 2011
+** Created: Mon 11. Jul 00:41:50 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,12 +23,12 @@ static const uint qt_meta_data_qml_interface[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-      27,   14, // methods
+      35,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       8,       // signalCount
+      11,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       15,   14,   14,   14, 0x05,
@@ -39,29 +39,37 @@ static const uint qt_meta_data_qml_interface[] = {
       63,   14,   14,   14, 0x05,
       70,   14,   14,   14, 0x05,
       80,   14,   14,   14, 0x05,
+      87,   14,   14,   14, 0x05,
+      93,   14,   14,   14, 0x05,
+     101,   14,   14,   14, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      87,   14,   14,   14, 0x0a,
+     115,   14,   14,   14, 0x0a,
 
  // methods: signature, parameters, type, tag, flags
-     108,   14,  100,   14, 0x02,
-     123,   14,  100,   14, 0x02,
-     142,   14,  100,   14, 0x02,
-     159,   14,  100,   14, 0x02,
-     169,   14,  100,   14, 0x02,
-     179,   14,  100,   14, 0x02,
-     189,   14,  100,   14, 0x02,
-     199,   14,  100,   14, 0x02,
-     209,   14,  100,   14, 0x02,
-     219,   14,  100,   14, 0x02,
-     229,   14,  100,   14, 0x02,
-     245,   14,  100,   14, 0x02,
-     260,   14,  100,   14, 0x02,
-     272,   14,   14,   14, 0x02,
-     285,   14,  281,   14, 0x02,
-     303,   14,   14,   14, 0x02,
-     315,   14,  100,   14, 0x02,
-     334,   14,   14,   14, 0x02,
+     136,   14,  128,   14, 0x02,
+     151,   14,  128,   14, 0x02,
+     170,   14,  128,   14, 0x02,
+     187,   14,  128,   14, 0x02,
+     197,   14,  128,   14, 0x02,
+     207,   14,  128,   14, 0x02,
+     217,   14,  128,   14, 0x02,
+     227,   14,  128,   14, 0x02,
+     237,   14,  128,   14, 0x02,
+     247,   14,  128,   14, 0x02,
+     257,   14,  128,   14, 0x02,
+     273,   14,  128,   14, 0x02,
+     288,   14,  128,   14, 0x02,
+     300,   14,   14,   14, 0x02,
+     313,   14,  309,   14, 0x02,
+     331,   14,   14,   14, 0x02,
+     343,   14,  128,   14, 0x02,
+     362,   14,  128,   14, 0x02,
+     370,   14,  128,   14, 0x02,
+     377,   14,  128,   14, 0x02,
+     395,   14,  128,   14, 0x02,
+     408,   14,   14,   14, 0x02,
+     424,   14,   14,   14, 0x02,
 
        0        // eod
 };
@@ -69,14 +77,16 @@ static const uint qt_meta_data_qml_interface[] = {
 static const char qt_meta_stringdata_qml_interface[] = {
     "qml_interface\0\0itFogz()\0destroyAll()\0"
     "fair()\0pCloudy()\0cloudy()\0rain()\0"
-    "thunder()\0snow()\0updateSlot()\0QString\0"
+    "thunder()\0snow()\0day()\0night()\0"
+    "cloudyNight()\0updateSlot()\0QString\0"
     "getWindSpeed()\0getWindDirection()\0"
     "getTemperature()\0getTime()\0depsurx()\0"
     "arvsurx()\0depsury()\0arvsury()\0depsurz()\0"
     "arvsurz()\0getNextUpdate()\0getFrequence()\0"
     "getSymbol()\0ItFogs()\0int\0getPositionCiel()\0"
-    "setSymbol()\0getRandomInteger()\0"
-    "thunderEmetor()\0"
+    "setSymbol()\0getRandomInteger()\0getDe()\0"
+    "getA()\0getLocalisation()\0getCountry()\0"
+    "thunderEmetor()\0setNightOrDay()\0"
 };
 
 const QMetaObject qml_interface::staticMetaObject = {
@@ -116,43 +126,55 @@ int qml_interface::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 5: rain(); break;
         case 6: thunder(); break;
         case 7: snow(); break;
-        case 8: updateSlot(); break;
-        case 9: { QString _r = getWindSpeed();
+        case 8: day(); break;
+        case 9: night(); break;
+        case 10: cloudyNight(); break;
+        case 11: updateSlot(); break;
+        case 12: { QString _r = getWindSpeed();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 10: { QString _r = getWindDirection();
+        case 13: { QString _r = getWindDirection();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 11: { QString _r = getTemperature();
+        case 14: { QString _r = getTemperature();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 12: { QString _r = getTime();
+        case 15: { QString _r = getTime();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 13: { QString _r = depsurx();
+        case 16: { QString _r = depsurx();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 14: { QString _r = arvsurx();
+        case 17: { QString _r = arvsurx();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 15: { QString _r = depsury();
+        case 18: { QString _r = depsury();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 16: { QString _r = arvsury();
+        case 19: { QString _r = arvsury();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 17: { QString _r = depsurz();
+        case 20: { QString _r = depsurz();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 18: { QString _r = arvsurz();
+        case 21: { QString _r = arvsurz();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 19: { QString _r = getNextUpdate();
+        case 22: { QString _r = getNextUpdate();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 20: { QString _r = getFrequence();
+        case 23: { QString _r = getFrequence();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 21: { QString _r = getSymbol();
+        case 24: { QString _r = getSymbol();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 22: ItFogs(); break;
-        case 23: { int _r = getPositionCiel();
+        case 25: ItFogs(); break;
+        case 26: { int _r = getPositionCiel();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
-        case 24: setSymbol(); break;
-        case 25: { QString _r = getRandomInteger();
+        case 27: setSymbol(); break;
+        case 28: { QString _r = getRandomInteger();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 26: thunderEmetor(); break;
+        case 29: { QString _r = getDe();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 30: { QString _r = getA();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 31: { QString _r = getLocalisation();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 32: { QString _r = getCountry();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 33: thunderEmetor(); break;
+        case 34: setNightOrDay(); break;
         default: ;
         }
-        _id -= 27;
+        _id -= 35;
     }
     return _id;
 }
@@ -203,5 +225,23 @@ void qml_interface::thunder()
 void qml_interface::snow()
 {
     QMetaObject::activate(this, &staticMetaObject, 7, 0);
+}
+
+// SIGNAL 8
+void qml_interface::day()
+{
+    QMetaObject::activate(this, &staticMetaObject, 8, 0);
+}
+
+// SIGNAL 9
+void qml_interface::night()
+{
+    QMetaObject::activate(this, &staticMetaObject, 9, 0);
+}
+
+// SIGNAL 10
+void qml_interface::cloudyNight()
+{
+    QMetaObject::activate(this, &staticMetaObject, 10, 0);
 }
 QT_END_MOC_NAMESPACE

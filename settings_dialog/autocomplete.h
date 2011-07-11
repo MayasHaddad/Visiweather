@@ -22,7 +22,6 @@ public:
 signals:
     void requetereussie(QString);
 public slots:
-    QStringList traitementChaine(int,bool);
     QStringList finishedSlot(QNetworkReply*);
 private :
         QHttp *QhttpClient;

@@ -35,18 +35,23 @@ public:
     Q_INVOKABLE int getPositionCiel();
     Q_INVOKABLE void setSymbol();
     Q_INVOKABLE QString getRandomInteger();
+    Q_INVOKABLE QString getDe();
+    Q_INVOKABLE QString getA();
+    Q_INVOKABLE QString getLocalisation();
+    Q_INVOKABLE QString getCountry();
     Q_INVOKABLE void thunderEmetor();
+    Q_INVOKABLE void setNightOrDay();
+    void thunders();
+    bool positionCielChange();
     QList<Forecast> forecasts;
     QDateTime nextUpdate;
-    void thunders();
+    QString localisation;
+    QString country;
     ~qml_interface();
 private:
     QDeclarativeView *view;
-    float dureJour;
-    QDateTime leveSoleil;
-    QDateTime coucheSoleil;
-    QString localisation;
     int mode;
+    int positionCouranteCiel;
     QMessageBox *noDataAvaible;
 signals:
     void itFogz();
@@ -57,7 +62,9 @@ signals:
     void rain();
     void thunder();
     void snow();
-
+    void day();
+    void night();
+    void cloudyNight();
 public slots :
     void updateSlot();
 };

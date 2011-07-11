@@ -67,6 +67,12 @@ void Receiver::attribute(const QXmlName &xmlname, const QStringRef &valueref)
 
 void Receiver::characters(const QStringRef &value)
 {
+    QString currentElement = elements.top();
+    if(currentElement == "name")
+     localisation = value.toString();
+    else if(currentElement == "country")
+     country = value.toString();
+    else
      nextUpdate = value.toString();
 }
 void Receiver::startElement(const QXmlName &xmlname)

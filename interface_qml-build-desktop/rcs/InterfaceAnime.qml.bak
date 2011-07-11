@@ -1,4 +1,4 @@
-import Qt 4.7
+﻿import Qt 4.7
 import Qt.labs.particles 1.0
 
 Item {
@@ -6,27 +6,72 @@ Item {
 	signal update()
     width: 640; height: 480
     // Let's draw the sky...
-    Rectangle {
-        anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.verticalCenter }
-        gradient: Gradient {
-            GradientStop {
-                position: 0.0
-                SequentialAnimation on color {
-                    loops: Animation.Infinite
-                    ColorAnimation { from: "DeepSkyBlue"; to: "#0E1533"; duration: 500000 }
-                    ColorAnimation { from: "#0E1533"; to: "DeepSkyBlue"; duration: 500000 }
-                }
-            }
-            GradientStop {
-                position: 1.0
-                SequentialAnimation on color {
-                    loops: Animation.Infinite
-                    ColorAnimation { from: "SkyBlue"; to: "#437284"; duration: 500000 }
-                    ColorAnimation { from: "#437284"; to: "SkyBlue"; duration: 500000 }
-                }
-            }
-        }	
-    }
+    Component{	
+		id : nightSky
+        Rectangle {
+		anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.verticalCenter }
+		gradient: Gradient {
+		GradientStop {
+                position: 0.0; color: "#0E1533"
+			}
+			GradientStop {
+                position: 1.0; color: "#437284"
+			}
+		}
+	 }
+	 }
+	
+	Loader{id : nightSkyLoader
+	anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.bottom}
+		}
+	
+		Connections {
+			target: interfce
+			onNight:nightSkyLoader.sourceComponent=nightSky
+			}
+	
+	
+	 Component{ 
+		 id : daySky
+		Rectangle{
+        anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.bottom }
+		gradient: Gradient {
+		GradientStop {position: 0.0; color: "DeepSkyBlue"}
+			GradientStop {position: 1.0; color: "SkyBlue"}
+	 }
+	 }
+	 }
+	 
+	Loader{id : daySkyLoader
+	anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.verticalCenter }
+		}
+		
+		Connections {
+			target: interfce
+			onDay:daySkyLoader.sourceComponent=daySky
+			}
+	
+	// Rectangle {
+        // anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.verticalCenter }
+        // gradient: Gradient {
+            // GradientStop {
+                // position: 0.0
+                // SequentialAnimation on color {
+                    // loops: Animation.Infinite
+                    // ColorAnimation { from: "DeepSkyBlue"; to: "#0E1533"; duration: 500000 }
+                    // ColorAnimation { from: "#0E1533"; to: "DeepSkyBlue"; duration: 500000 }
+                // }
+            // }
+            // GradientStop {
+                // position: 1.0
+                // SequentialAnimation on color {
+                    // loops: Animation.Infinite
+                    // ColorAnimation { from: "SkyBlue"; to: "#437284"; duration: 500000 }
+                    // ColorAnimation { from: "#437284"; to: "SkyBlue"; duration: 500000 }
+                // }
+            // }
+        // }	
+    // }
 	
     // the sun, moon, and stars
     Item {
@@ -132,20 +177,68 @@ Item {
 		onPCloudy: cloudiesLoader.sourceComponent=partlyCloudy
 	}
     // ...and the ground.
-    Rectangle {
-        anchors { left: parent.left; top: parent.verticalCenter; right: parent.right; bottom: parent.bottom }
-        gradient: Gradient {
-            GradientStop {
-                position: 0.0
-                SequentialAnimation on color {
-                    loops: Animation.Infinite
-                    ColorAnimation { from: "ForestGreen"; to: "#001600"; duration: 50000 }
-                    ColorAnimation { from: "#001600"; to: "ForestGreen"; duration: 50000 }
-                }
-            }
-            GradientStop { position: 1.0; color: "DarkGreen" }
-        }
-    }
+	
+	Component{	
+		id : nightGround
+        Rectangle {
+		anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.bottom }
+		gradient: Gradient {
+		GradientStop {
+                position: 0.0; color: "#001600"
+			}
+			GradientStop {
+                position: 1.0; color: "DarkGreen"
+			}
+		}
+	 }
+	 }
+	
+	Loader{id : nightGroundLoader
+	anchors { left: parent.left; top: parent.verticalCenter; right: parent.right; bottom: parent.bottom }
+		}
+	
+		Connections {
+			target: interfce
+			onNight:nightGroundLoader.sourceComponent=nightGround
+			}
+	
+	
+	 Component{ 
+		 id : dayGround
+		Rectangle{
+        anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.bottom }
+		gradient: Gradient {
+		GradientStop {position: 0.0; color: "ForestGreen"}
+			GradientStop {position: 1.0; color: "DarkGreen"}
+	 }
+	 }
+	 }
+	 
+	Loader{id : dayGroundLoader
+	anchors { left: parent.left; top: parent.verticalCenter; right: parent.right; bottom: parent.bottom }
+		}
+		
+		Connections {
+			target: interfce
+			onDay:dayGroundLoader.sourceComponent=dayGround
+			}
+	
+	
+	
+    // Rectangle {
+        // anchors { left: parent.left; top: parent.verticalCenter; right: parent.right; bottom: parent.bottom }
+        // gradient: Gradient {
+            // GradientStop {
+                // position: 0.0
+                // SequentialAnimation on color {
+                    // loops: Animation.Infinite
+                    // ColorAnimation { from: "ForestGreen"; to: "#001600"; duration: 50000 }
+                    // ColorAnimation { from: "#001600"; to: "ForestGreen"; duration: 50000 }
+                // }
+            // }
+            // GradientStop { position: 1.0; color: "DarkGreen" }
+        // }
+    // }
 	
 	
 	// The small house 	
@@ -174,12 +267,7 @@ Item{
 		}
 		
 		Loader{id : rainLoader}
-		
-		// Connections {
-			// target: interfce
-			// onDestroyAll :	rainP.destroy();
-			// }
-		
+				
 		Connections {
 			target: interfce
 			onRain : rainLoader.sourceComponent=rain
@@ -205,8 +293,57 @@ Item{
 			target: interfce
 			onSnow : snowLoader.sourceComponent=snow
 		}
+	
 		
-	// Thunder, l'�claire doit apparaitre de facon al�atoire
+	Loader {id: eclaireLoader }
+	
+	Connections {
+			target: interfce
+			onThunder : eclaireLoader.sourceComponent=eclaire}
+		
+			
+		
+	 Component {
+			 id: fogRect
+			Rectangle {
+		anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.bottom }
+				color: "grey"
+				opacity:0.6
+			} 
+
+		 }
+		
+		Loader{id : fogLoader
+		anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.bottom }
+		}
+		
+		Connections {
+			target: interfce
+			onItFogz : fogLoader.sourceComponent=fogRect
+		}
+	 
+	 
+	 Component {
+			 id: blackNightRect
+			Rectangle {
+		anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.bottom }
+				color: "black"
+				opacity:0.8
+			} 
+
+		 }
+		
+		Loader{id : blackNightLoader
+		anchors { left: parent.left; top: parent.top; right: parent.right; bottom: parent.bottom }
+		}
+		
+		Connections {
+			target: interfce
+			onCloudyNight: blackNightLoader.sourceComponent=blackNightRect
+		}
+		
+			
+	// Thunder, l'éclaire doit apparaitre de facon aléatoire
 	
 	Component{
 		id:eclaire
@@ -221,22 +358,37 @@ Item{
 		}
 		}
 		}
-		
-		
-		// Loader{id:eclerLoader}
-		// Timer {
-         // interval: 300; running: true; repeat: true
-         // onTriggered: eclerLoader.sourceComponent=ecler
-		 // }
-		  }
-		}
-		
-	Loader {id: eclaireLoader }
 	
-	Connections {
-			target: interfce
-			onThunder : eclaireLoader.sourceComponent=eclaire}
+	
+		 Text {text :"Direct. vent : "+interfce.getWindDirection(); x:20; y:20}
+	     Text {text :"Vites. vent : "+(interfce.getWindSpeed()*3.6).toFixed(2)+" Km/h"; x:20; y:35}
+		 Text {text :"Temps : "+interfce.getSymbol(); x:20; y:50}
+		 Text {text :"Temper. : "+interfce.getTemperature()+" °C"; x:20; y:65}
+		 Text {text :interfce.getLocalisation()+", "+interfce.getCountry()+" du "+interfce.getDe()+"h à "+interfce.getA()+"h"}
+	  
+	  Image{
+		id : fwd
+	  x:320; y: 250
+			width : 50; height:50
+			source:"ressources/fwd.png"
 		
+		MouseArea {
+		 anchors.fill: parent
+         onClicked: { parent.height = interfce.stepUp() }
+		}
+		}
+	  Image{
+		 x:fwd.x-fwd.width; y: fwd.y
+		width : 50; height:50
+		source:"ressources/bwd.png"
+		
+		MouseArea {
+		 anchors.fill: parent
+         onClicked: { parent.height = interfce.stepDown() }
+		}
+	  }
+	  
+	  
 	Item{
 		x:540; y:20
 	Image {
@@ -244,43 +396,8 @@ Item{
 			source: "ressources/cardino.png";
 		}
 		}	
-			
-		
-	Item{
-		
-		id: brouillard
-		width:parent.width; height:parent.height
-		 Component {
-			 id: fogRect
-			Rectangle {
-				width: 500 // parent.width
-				height: 500 //parent.height
-				color: "grey"
-				opacity:0.3
-			} 
-
-		 }
-		
-		Loader{id : fogLoader}
-		
-		Connections {
-			target: interfce
-			onItFogz : fogLoader.sourceComponent=fogRect
-		}
-	 }
-		 Text {id:dv; text :"Direct. vent : "+interfce.getWindDirection(); x:20; y:20}
-	     Text {id:vv; text :"Vites. vent : "+(interfce.getWindSpeed()*3.6).toFixed(2)+" Km/h"; x:20; y:30}
-		 Text {id:sy; text :"Temps : "+interfce.getSymbol(); x:20; y:40}
-		 Text {id:tem; text :"Temper. : "+interfce.getTemperature()+" C"; x:20; y:50}
-		 
-	  // Timer {
-         // interval: 5000; running: true; repeat: true
-         // onTriggered: {	dv.text="Direct. vent : "+interfce.getWindDirection()
-						// vv.text="Vites. vent : "+(interfce.getWindSpeed()*3.6).toFixed(2)+" Km/h";
-						// sy.text="Temps : "+interfce.getSymbol()
-						// tem.text="Temper. : "+interfce.getTemperature()+" C"
-						// }
-     // }
+	  
+	  
 	  Timer {
          interval: 5000; running: true; repeat: true
          onTriggered: update()

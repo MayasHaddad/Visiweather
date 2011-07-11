@@ -78,6 +78,8 @@ public:
     QList<Forecast> forecasts;
     QHash<QString,QString>sun;
     QString nextUpdate;
+    QString localisation;
+    QString country;
 private:
     QXmlNamePool namePool;
     QStack<QString> elements;

@@ -6,7 +6,11 @@
 settingsWindow::settingsWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    resize(360, 390);
+    #if defined(Q_OS_SYMBIAN)
+    resize(640,360);
+    #else
+    resize(340,360);
+#endif
     QFont font;
     font.setFamily(QString::fromUtf8("Arial"));
     setFont(font);
@@ -49,7 +53,6 @@ settingsWindow::settingsWindow(QWidget *parent)
     Layout_choix->addLayout(layoutLineEditPushButton, 1, 0, 1, 1);
 
     list = new QListWidget(this);
-    //list->installEventFilter(this);
     list->hide();
 
     grandlayout->addLayout(Layout_choix, 0, 0, 1, 1);
@@ -108,32 +111,26 @@ QString settingsWindow::get_concat()
 
 void settingsWindow::ville_choisie()
 {
-    labelVilleOk->setText(complete->getFormatquery(lineEdit->text()));
+   // labelVilleOk->setText(complete->getFormatquery(lineEdit->text()));
       QStringList place;
       place.append(complete->getFormatquery(lineEdit->text()));
-   process->startDetached("C:\\Visiweather1\\interface_qml-build-desktop\\debug\\interface_qml.exe",place);
+   process->startDetached("C:\\Visiweather1\\interface_qml-build-desktop\\release\\interface_qml.exe",place);
 }
 
 void settingsWindow::fonctionner_en_hors_connex()
 {
    if(checkBox->isChecked() && lance==false)
     {
-  //  process->setWorkingDirectory ("C:\\Visiweather1\\interface_qml-build-desktop");
     process->startDetached("C:\\Visiweather1\\interface_qml-build-desktop\\release\\interface_qml.exe");
     lance=true;
     process->setReadChannel(QProcess::StandardOutput);
     QObject::connect(process, SIGNAL(readyRead()), this, SLOT(recup_channel()));
     }
-   /*else
-   {
-     process->close();
-   }*/
 }
 
 void settingsWindow::recup_channel()
 {
     char data[256];
-    //process->readData(data,256);
     labelVilleOk->setText(data);
     QDialog *win=new QDialog(this);
     win->show();
@@ -154,6 +151,7 @@ void settingsWindow::creeCompleter(QString debut)
     list->addItems(wordList);
     list->move(lineEdit->x()+20,lineEdit->y()+50);
     list->setFixedSize(lineEdit->width(),150);
+    list->setStyleSheet("background-color : blue");
     list->show();
     lineEdit->setFocus();
     }
@@ -182,54 +180,49 @@ void settingsWindow::reConnec(QString nouvotext)     // une fois le completer cr
    list->hide();
  }
 
- bool settingsWindow::eventFilter(QObject *obj, QEvent *ev)
+ void settingsWindow::setOrientation(ScreenOrientation orientation)
  {
-     if (obj != list)
-     {
-         return false;
-     }
-     if (ev->type() == QEvent::MouseButtonPress) {
-         list->hide();
-         lineEdit->setFocus();
-         return true;
-     }
-     if (ev->type() == QEvent::KeyPress) {
-
-         bool consumed = false;
-         int key = static_cast<QKeyEvent*>(ev)->key();
-         switch (key) {
-         case Qt::Key_Enter:
-         case Qt::Key_Return:
-             consumed = true;
-
-         case Qt::Key_Escape:
-             lineEdit->setFocus();
-             list->hide();
-             consumed = true;
-
-         case Qt::Key_Up:
-         case Qt::Key_Down:
-         case Qt::Key_Home:
-         case Qt::Key_End:
-         case Qt::Key_PageUp:
-         case Qt::Key_PageDown:
-             break;
-
-         default:
-             lineEdit->setFocus();
-             lineEdit->event(ev);
-             list->hide();
-             break;
+ #if defined(Q_OS_SYMBIAN)
+     if (orientation != ScreenOrientationAuto) {
+         const QStringList v = QString::fromAscii(qVersion()).split(QLatin1Char('.'));
+         if (v.count() == 3 && (v.at(0).toInt() << 16 | v.at(1).toInt() << 8 | v.at(2).toInt()) < 0x040702) {
+             qWarning("Screen orientation locking only supported with Qt 4.7.2 and above");
+             return;
          }
-
-         return consumed;
      }
+ #endif // Q_OS_SYMBIAN
 
-     return false;
+     Qt::WidgetAttribute attribute;
+     switch (orientation) {
+ #if QT_VERSION < 0x040702
+     // Qt < 4.7.2 does not yet have the Qt::WA_*Orientation attributes
+     case ScreenOrientationLockPortrait:
+         attribute = static_cast<Qt::WidgetAttribute>(128);
+         break;
+     case ScreenOrientationLockLandscape:
+         attribute = static_cast<Qt::WidgetAttribute>(129);
+         break;
+     default:
+     case ScreenOrientationAuto:
+         attribute = static_cast<Qt::WidgetAttribute>(130);
+         break;
+ #else // QT_VERSION < 0x040702
+     case ScreenOrientationLockPortrait:
+         attribute = Qt::WA_LockPortraitOrientation;
+         break;
+     case ScreenOrientationLockLandscape:
+         attribute = Qt::WA_LockLandscapeOrientation;
+         break;
+     default:
+     case ScreenOrientationAuto:
+         attribute = Qt::WA_AutoOrientation;
+         break;
+ #endif // QT_VERSION < 0x040702
+     };
+     setAttribute(attribute, true);
  }
 
-
-settingsWindow::~settingsWindow()
+ settingsWindow::~settingsWindow()
 {
 
 }

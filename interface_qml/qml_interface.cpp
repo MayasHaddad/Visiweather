@@ -19,12 +19,8 @@ qml_interface::qml_interface(QString place, QWidget *parent)
     }
     else
     {
-        QNetworkAccessManager *acces = new QNetworkAccessManager(this);
-        acces->setNetworkAccessible(QNetworkAccessManager::Accessible);
-        if (acces->networkAccessible()== QNetworkAccessManager::NotAccessible){
-    }
     dataloader *loader = new dataloader();
-    loader->fetchForecast(localisation,this);
+    loader->fetchForecast(localisation,this,1);
     }
     QTimer* timer = new QTimer(this);
     timer->setInterval(5000);
@@ -34,6 +30,7 @@ qml_interface::qml_interface(QString place, QWidget *parent)
     view->rootContext()->setContextProperty("interfce",this);
     view->setSource(QUrl::fromLocalFile("rcs/InterfaceAnime.qml"));
     this->setSymbol();
+    positionCouranteCiel=getPositionCiel();
     QObject::connect(timer, SIGNAL(timeout()),
                           this, SLOT(updateSlot()));
    }
@@ -93,6 +90,7 @@ void qml_interface::setSymbol()
     else if(Symbol == "Rain and thunder"){emit cloudy(); emit rain(); thunders();}
     else if(Symbol == "Snow"){emit cloudy(); emit snow();}
     else if(Symbol == "Snow and thunder")   {emit cloudy(); emit snow(); thunders();}
+    setNightOrDay();
 }
 
 QString qml_interface::getSymbol()
@@ -106,7 +104,7 @@ QString qml_interface::getFrequence()
     if(Symbol == "Rain") return "50";
     if(Symbol =="Snow") return "50";
     if(Symbol=="Sleet") return "50";
-    else if((Symbol == "Rain showers") || (Symbol== "Snow showers") || (Symbol== "Sleet showers")) return "5";
+    else if((Symbol == "Rain showers") || (Symbol== "Snow showers") || (Symbol== "Sleet showers")) return "10";
     else /*if(Symbol == "Heavy rain")*/ return "100";
 }
 
@@ -448,6 +446,26 @@ int qml_interface::getPositionCiel()
 }
 }
 
+QString qml_interface::getDe()
+{
+    return QDateTime::fromString(getCurrentForecast().time["from"],"yyyy-MM-ddThh:mm:ss").toString("ddd d, hh");
+}
+
+QString qml_interface::getA()
+{
+    return QDateTime::fromString(getCurrentForecast().time["to"],"yyyy-MM-ddThh:mm:ss").toString("ddd d, hh");
+}
+
+QString qml_interface::getLocalisation()
+{
+    return localisation;
+}
+
+QString qml_interface::getCountry()
+{
+    return country;
+}
+
 void qml_interface::ItFogs()
 {
     if (getCurrentForecast().symbol["name"]=="Fog")
@@ -461,13 +479,20 @@ QString qml_interface::getNextUpdate()
 
 void qml_interface::updateSlot()
 {
-    if(nextUpdate < QDateTime::currentDateTime())
+    if(nextUpdate < QDateTime::currentDateTime() || positionCielChange())
     {
         dataloader *loader = new dataloader();
         loader->fetchForecast(localisation,this);
         view->setSource(QUrl::fromLocalFile("rcs/InterfaceAnime.qml"));
         this->setSymbol();
+        this->setNightOrDay();
+        positionCouranteCiel=getPositionCiel();
     }
+}
+
+bool qml_interface::positionCielChange()
+{
+    return (positionCouranteCiel != getPositionCiel());
 }
 
 QString qml_interface::getRandomInteger()
@@ -504,6 +529,18 @@ void qml_interface::thunders()
 void qml_interface::thunderEmetor()
 {
     emit thunder();
+}
+
+void qml_interface::setNightOrDay()
+{
+    if(QTime::currentTime()<QTime(19,0,0,0) && QTime::currentTime()>QTime(6,0,0,0))
+    emit day();
+    else
+    {
+        emit night();
+        if(getCurrentForecast().symbol["name"]!="Fair" && getCurrentForecast().symbol["name"]!="Partly cloudy")
+        emit cloudyNight();
+    }
 }
 
 qml_interface::~qml_interface()

@@ -29,10 +29,16 @@ class settingsWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    enum ScreenOrientation {
+        ScreenOrientationLockPortrait,
+        ScreenOrientationLockLandscape,
+        ScreenOrientationAuto
+    };
+
     settingsWindow(QWidget *parent = 0);
     void retranslateUi(QMainWindow *settingsWindow);
     QString get_concat();
-    bool eventFilter(QObject *obj, QEvent *ev);
+    void setOrientation(ScreenOrientation);
     ~settingsWindow();
 signals:
     void cdanslcache(QString);
@@ -61,7 +67,7 @@ private:
     std::map<QString , QCompleter *> completer;
     QProcess *process;
     QStringList wordList;
-    QListWidget*list;
+    QListWidget *list;
     autocomplete *complete;
     bool lance;
 };
