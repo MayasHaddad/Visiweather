@@ -1,4 +1,3 @@
-#include <QtGui/QApplication>
 #include "settingswindow.h"
 #include <QNetworkConfiguration>
 #include <QNetworkConfigurationManager>
